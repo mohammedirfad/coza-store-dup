@@ -8,7 +8,7 @@ const Wishlistdb = require('../models/wishlist_schema')
 const coupondb   = require('../models/coupon_schema')
 const Bannerdb   = require("../models/banner_schema")
 const bcrypt = require('bcrypt');
-const { sendotp, verifyotp } = require("../utilities/otpverify");
+const {sendotp,verifyotp } = require("../utilities/otpverify");
 const { default: mongoose } = require('mongoose');
 const { findOne } = require('../models/usersignin');
 const router = require('../routes/userrouter');
@@ -51,13 +51,8 @@ const userhomepage = async (req, res) => {
     if (user) {
         const wishlist = await Wishlistdb.findOne({ user: req.session.user_detail._id })
         const owner_id = req.session.user_detail
-        const cartItems = await Cartdb.findOne({ user:owner_id })
-        .populate('items.product')
-       if(cartItems != null){
-        const cart_count = cartItems.items.length
-
-        req.session.Cartlength = cart_count
-       }
+        
+     
 
         let wishproducts;
         if (wishlist) {
@@ -71,7 +66,7 @@ const userhomepage = async (req, res) => {
         console.log("wish---------------",wishproducts);
         
 
-        res.render('user/userhome', { login: req.session.loggedin, usercat, product, wishproducts,Banner,length:req.session.Cartlength })
+        res.render('user/userhome', { login: req.session.loggedin, usercat, product, wishproducts,Banner })
 
     }
     else {
@@ -124,7 +119,7 @@ const profile = async (req, res) => {
         user_address = []
     }
     console.log(user_address)
-    res.render('user/profile', { login: req.session.loggedin, find_user, user: req.session.user_detail, address, user_address,length:req.session.Cartlength })
+    res.render('user/profile', { login: req.session.loggedin, find_user, user: req.session.user_detail, address, user_address })
 }
 
 //add-address(get)
@@ -132,7 +127,7 @@ const profile = async (req, res) => {
 const addressManage = async (req, res) => {
 
     try {
-        res.render('user/addAddress', { login: req.session.loggedin,user: req.session.user_detail,length:req.session.Cartlength })
+        res.render('user/addAddress', { login: req.session.loggedin,user: req.session.user_detail })
 
     }
     catch (err) {
@@ -164,7 +159,7 @@ const addaddress = async (req, res) => {
                 })
         }
         else {
-            address = new Address({
+            const address = new Address({
                 user: id,
                 address: [req.body]
 
@@ -346,11 +341,11 @@ const productView = async (req, res) => {
         console.log("wish---------------",wishproducts);
 
         // res.render('user/userhome', { login: req.session.loggedin, usercat, product, wishproducts,Banner })
-        res.render('user/shop', { login: req.session.loggedin, product,wishproducts ,length:req.session.Cartlength})
+        res.render('user/shop', { login: req.session.loggedin, product,wishproducts })
     }
     else {
         console.log("not loged yet")
-        res.render('user/shop', { login: req.session.loggedin, product,length:req.session.Cartlength })
+        res.render('user/shop', { login: req.session.loggedin, product })
 
     }
 
@@ -365,7 +360,7 @@ const productDetails = async (req, res) => {
     // let products = await productdb.find({user: ID });
 
     let products = await productdb.find({ _id: ID })
-    res.render('user/productdetails', { login: req.session.loggedin, products, usercats ,length:req.session.Cartlength})
+    res.render('user/productdetails', { login: req.session.loggedin, products, usercats })
 }
 
 
@@ -377,14 +372,23 @@ const cartview = async (req, res) => {
         const cartItems = await Cartdb.findOne({ user: mongoose.Types.ObjectId(owner_id) })
             .populate('items.product')
 
-    const cart_count = cartItems.items.length
+    
 
-       req.session.Cartlength = cart_count
+
+
+    // if(cartItems.items.length != 0 || cartItems.items != null){
+    //     const cart_count = cartItems.items.length
+    //     req.session.Cartlength = cart_count
+    // }
+    //   else{
+    //     const cart_count =  cartItems.items.length
+    //     req.session.Cartlength = 0;
+    //   }
 
 
         // console.log(cart_count)
 
-        res.render('user/cartview', { login: req.session.loggedin, cartItems, user: req.session.user_detail,length:req.session.Cartlength})
+        res.render('user/cartview', { login: req.session.loggedin, cartItems, user: req.session.user_detail})
        
     }
 
@@ -805,7 +809,7 @@ const getwishlist = async (req, res) => {
         const getwish = await Wishlistdb.findOne({ user: user_id })
             .populate('items.product')
 
-        res.render('user/wishlist', { login: req.session.loggedin, getwish, user: req.session.user_detail,length:req.session.Cartlength })
+        res.render('user/wishlist', { login: req.session.loggedin, getwish, user: req.session.user_detail })
 
     }
     catch (error) {
@@ -1028,7 +1032,7 @@ const checkout = async (req, res) => {
         .populate('items.product')
 
         
-    res.render('user/checkoutpage', { login: req.session.loggedin, user_address, cartItems,length:req.session.Cartlength })
+    res.render('user/checkoutpage', { login: req.session.loggedin, user_address, cartItems })
 }
 
 
@@ -1239,7 +1243,7 @@ const ordersucess = async (req, res) => {
 
     const deliver_Address = req.session.deliverAddress
 
-    res.render('user/ordersucess', { login: req.session.loggedin, orderDetail, deliver_Address,length:req.session.Cartlength })
+    res.render('user/ordersucess', { login: req.session.loggedin, orderDetail, deliver_Address })
 
 }
 
@@ -1252,7 +1256,7 @@ const myOrders = async (req, res) => {
 
     console.log( Order)
 
-    res.render('user/myorders', { login: req.session.loggedin, Order,length:req.session.Cartlength })
+    res.render('user/myorders', { login: req.session.loggedin, Order })
 
 }
 
@@ -1429,7 +1433,7 @@ const orderdetails = async (req, res) => {
     console.log(req.params.id)
     const orderDetail = await Orderdb.findOne({ _id: req.params.id }).populate('items.product')
     console.log(orderDetail)    
-    res.render('user/orderDetails', { login: req.session.loggedin, orderDetail,length:req.session.Cartlength })
+    res.render('user/orderDetails', { login: req.session.loggedin, orderDetail })
 }
 
 const cancelorder = async (req, res) => {

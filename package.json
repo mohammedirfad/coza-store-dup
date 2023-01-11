@@ -25,6 +25,6 @@
     "nodemon": "^2.0.20",
     "randomstring": "^1.2.3",
     "session": "^0.1.0",
-    "twilio": "^3.83.4"
+    "twilio": "^3.84.0"
   }
 }
