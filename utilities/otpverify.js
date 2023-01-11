@@ -50,7 +50,7 @@ const authToken = process.env.AUTH_TOKEN;
 const verifySid = process.env.SSID
 
 
-const client = require('twilio')(accountSid, authToken);
+const client = require('twilio')(accountSid,authToken);
 
 function sendotp(sendotpphone){
     client.verify.v2
