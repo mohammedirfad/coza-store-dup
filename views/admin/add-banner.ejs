@@ -1,0 +1,88 @@
+<%- include('partials/adminheader.ejs') %>
+
+
+
+
+
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <form action="/admin/bannerManage" method="post" enctype="multipart/form-data" >
+          <div class="card shadow p-3 mb-5 bg-white rounded " style="border-radius: 1rem;">
+            <!-- <div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div> -->
+            <div class="card-body p-5 text-center" style="    padding: 0.5rem;    margin-top: -48px; ">
+
+              <div class="mb-md-5 mt-md-4 pb-5">
+
+                <h2 class="fw-bold mb-2 text-uppercase">Add Banner</h2>
+                <p class="text-dark-50 mb-5">Please Add Banner Here.</p>
+
+
+
+                <div class="form-group" style="    margin-top: 15px;">
+            <label for="tech" style="color: black;" >Category :
+            <div class="col-sm-3">
+              <select class="form-control dropdown" name="category" style="width: 290px;">
+                <% for(let i=0 ;i<Category.length; i++) { %>
+
+                  <option><%- Category[i].name %></option>
+                  <% } %>
+                
+              </select>
+            </label>
+            </div>
+                <br>
+
+                <div class="form-group">
+                  <label for="" style="color: black;">title :<br></label>
+                  <input type="text" class="form-control mb-3" id="" placeholder="Title" name="title" />
+                </div>
+
+                <div class="form-group">
+                  <label for="" style="color: black;">text :<br></label>
+                  <input type="text" class="form-control mb-3" id="e" placeholder="description" name="text" />
+                </div>
+
+
+                <div class="form-group">
+                  <label for="" style="color: black;">offer :<br></label>
+                  <input type="number" class="form-control mb-3" id="exampleInputName1" placeholder="Offers" name="offer" />
+                </div>
+
+                <div class="form-group">
+                  <label for="" style="color: black;">Link :<br></label>
+                  <input type="text" class="form-control mb-3" id="" placeholder="url" name="links" />
+                </div>
+
+
+
+
+                <div class="form-group">
+                  <label style="color: black;">Image upload :</label>
+
+                  <div class="input-group col-xs-12">
+                    <input class="form-control file-upload-info" placeholder="Upload Image" type="file" accept="image/jpeg,image/gif,image/png,image/x-eps" id="image" name="image" multiple />
+                 
+                  </div>
+                </div>
+                <br>
+
+
+
+                <button class="btn btn-primary btn-lg px-5" type="submit">Add Banner</button>
+
+
+              </div>
+
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('partials/adminfooter.ejs') %>

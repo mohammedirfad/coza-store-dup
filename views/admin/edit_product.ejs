@@ -1,0 +1,109 @@
+<%- include('partials/adminheader.ejs') %>
+
+
+<div class="container shadow p-3 mb-5 bg-white rounded mt-5" style="    margin-top: 6rem;">
+
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title mt-3">Edit Products</h3>
+      </div>
+      <div class="panel-body" style="margin-top: 39px;">
+  
+        <form action="/admin/upload-editproduct/<%- prod_details[0]._id %> " method="post" enctype="multipart/form-data" class="form-horizontal" role="form" >
+  
+        
+  
+          <div class="form-group">
+            <label for="name" class="control-label col-sm-2 font-weight-bold"  style="    font-weight: bold;" ;>Name :</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="name" id="name" placeholder="product Name" value="<%- prod_details[0].name %>">
+            </div>
+          </div> <!-- form-group // -->
+
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="name" class="col-sm-3 control-label" style="    font-weight: bold;">Brand :</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="brand" value="<%- prod_details[0].brand %>">
+            </div>
+          </div> <!-- form-group // -->
+
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="tech" class="col-sm-3 control-label " style=" width: 500px;   font-weight: bold;">Category :
+            <div class="col-sm-3">
+                <select class="form-control dropdown" name="category">
+                <% for(let i=0 ;i<cat_detail.length; i++) { %>
+
+                    <option><%- cat_detail[i].name %></option>
+                    <% } %>
+                
+              </select>
+            </label>
+            </div>
+          <!-- form-group // -->
+         
+          <div class="form-group" style="    margin-top: 15px;">
+            <div class="col-sm-3">
+              <label class="control-label small" for="date_start" style="    font-weight: bold;">Size :</label>
+              <input type="text" class="form-control" name="size" id="date_start" placeholder="Eg: XL" value="<%- prod_details[0].size %>">
+            </div>
+          </div>
+
+            <div class="form-group" style="    margin-top: 15px;">
+                <div class="col-sm-3">
+                  <label class="control-label small" for="date_start" style="    font-weight: bold;">Price : </label>
+                  <input type="text" class="form-control" name="price" id="date_start" placeholder="Eg :$69" value="<%- prod_details[0].price %>">
+                </div>
+              </div>
+
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="qty" class="col-sm-3 control-label" style="    font-weight: bold;">Discount :</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" name="discount" id="qty" placeholder=" " value="<%- prod_details[0].discount %>">
+            </div>
+          </div> <!-- form-group // -->
+
+         
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="name" class="col-sm-3 control-label" style="    font-weight: bold;">UPLOAD IMAGES -(jpg/png):</label>
+            <div class="col-sm-3">
+              <label class="control-label small" for="file_img">image 1:</label> <input type="file" name="image">
+            </div>
+            <div class="col-sm-3">
+              <label class="control-label small" for="file_img">image 2:</label> <input type="file" name="image">
+            </div>
+            <div class="col-sm-3">
+                <label class="control-label small" for="file_img">image 3:</label> <input type="file" name="image">
+              </div>
+          </div> <!-- form-group // -->
+
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="qty" class="col-sm-3 control-label" style="    font-weight: bold;">Stock :</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" name="stock" id="qty" placeholder="" value="<%- prod_details[0].stock %>">
+            </div>
+          </div> <!-- form-group // -->
+
+          
+        
+            
+          <div class="form-group" style="    margin-top: 15px;">
+            <label for="name" class="col-sm-3 control-label" style="    font-weight: bold;">Discription :</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="description" id="name" placeholder="product Name" value="<%- prod_details[0].description %>">
+            </div>
+          </div>
+          <hr>
+          <div class="form-group" style="    margin-top: 15px;">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="submit" class="btn btn-primary">Edit Product</button>
+            </div>
+          </div> <!-- form-group // -->
+        </form>
+  
+      </div><!-- panel-body // -->
+    </section><!-- panel// -->
+  
+  </div> <!-- container// -->
+
+
+<%- include('partials/adminfooter.ejs') %>

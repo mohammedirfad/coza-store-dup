@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login 10</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/user/css copy/style.css">
+	<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+
+<body class="img js-fullheight" style="background-image: url(/user/images/slide-01.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"><a href="#" class="logo">
+						<img src="/user/images/icons/logo-01.png" alt="IMG-LOGO">
+					</a></h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Have an account?</h3>
+						
+						<form action="/home" method="post" class="signin-form">
+							<div class="form-group">
+								
+								<input type="email" class="form-control"  name="email" placeholder="Email-address" required>
+							</div>
+							<%if(message=="You have Entered Wrong Email") {%>
+								<h5 style="color: red;font-weight: bolder;    text-align: center;"><%=message%></h5>
+	
+								<%}%>
+							<div class="form-group">
+								<input id="password-field" type="password" name="password" class="form-control" placeholder="Password"
+									required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+									<%if(message=="Password Wrong") {%>
+										<h5 style="color: red;font-weight: bolder;    text-align: center;"><%=message%></h5>
+			
+										<%}%>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3" onclick="sweetal()">Sign In</button>
+							</div>
+							<div class="form-group d-md-flex">
+								<div class="w-50">
+									<a href="/signin" class="px-2 py-2 mr-md-1 rounded">Sign in?</a>
+									
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="/forgetpassword" style="color: #fff">Forgot Password</a>
+								</div>
+							</div>
+						</form>
+						<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+						<div class="social d-flex text-center">
+							<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>
+								Facebook</a>
+							<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span>
+								Twitter</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		function sweetal(){
+			const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Signed in successfully'
+})
+		}
+	</script>
+	<script src="sweetalert2.all.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="sweetalert2.min.js"></script>
+
+	<script src="/user/js copy/jquery.min.js"></script>
+	<script src="/user/js copy/popper.js"></script>
+	<script src="/user/js copy/bootstrap.min.js"></script>
+	<script src="/user/js copy/main.js"></script>
+
+
+</body>
+
+</html>

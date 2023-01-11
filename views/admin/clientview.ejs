@@ -1,0 +1,63 @@
+<%- include('partials/adminheader.ejs') %>
+
+<div class="col-12 mt-4">
+    <div class="bg-light rounded h-100 p-4">
+        <h3 class="mt-4">Client View</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                  
+                        <th scope="col">Email</th>
+                        <th scope="col">Moby</th>
+                      
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<clientdetails.length;i++) { %>
+                    <tr>
+                        <th scope="row"><%- i+1 %></th>
+                        <td><%-clientdetails[i].fname %></td>
+                  
+                        <td><%-clientdetails[i].email %></td>
+                     
+                        <td><%-clientdetails[i].mobile %></td>
+                        
+                            <% if (clientdetails[i].block === true) { %>
+                        <td>    
+                            <a class="btn btn-success btn-sm" href="/admin/block/<%- clientdetails[i]._id %>">
+                                <span>
+                                 
+                                 Block
+                           
+                            </span>
+                          </a>
+
+                        </td>
+                        <% } else { %>
+                            <td>    
+                                <a class="btn btn-danger btn-sm" href="/admin/unblock/<%- clientdetails[i]._id %>">
+                                    <span>
+                                     
+                                    UnBlock
+                               
+                                </span>
+                              </a>
+    
+                            </td>
+                            <% } %>
+                    </tr>
+                    <% } %>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/adminfooter.ejs') %>

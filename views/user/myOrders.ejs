@@ -1,0 +1,99 @@
+<%- include('partials/homeheader.ejs') -%>
+
+
+<!-- 
+<div class="home" style="    height: 541px;
+margin-top: 34px;">
+  <div class="home_background parallax-window" data-parallax="scroll" data-image-src="" data-speed="0.8" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPmtlcOstw02ndgdfrBgNgpNmL8vBVuwvt9Q&usqp=CAU');"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="home_container">
+          <div class="home_content">
+            <div class="home_title" style="font-size: 54px;">My Orders</div>
+            <div class="breadcrumbs">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product-details">Shopping Cart</a></li>
+                <li>Shopping Cart</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('/user/images/bg-02.jpg');margin-top: 70px;">
+    <h2 class="ltext-105 cl0 txt-center">
+    My Order
+    </h2>
+  </section>	
+
+
+
+<div class="container mt-5" style="margin-top: 100px;    padding: 73px;">
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <!-- <h6 class="mb-4">Your Orders</h6> -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead style="color: black;">
+                    <tr>
+                        <th>#ORDER</th>
+                        <th scope="col">DATE</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">TOTAL</th>
+                        <th scope="col">PRODUCT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<Order.length;i++) { %> 
+                    <tr>
+                        <th scope="row"><%- i+1 %></th>
+                     
+                  
+                        <td>
+                            <%= Order[i].date %> 
+ 
+                        </td>
+                     
+                        <td>
+                          <% if(Order[i].orderStatus == "DELIVERED") { %>
+                            <h6 style="color:green; font-weight: 600;"> <%= Order[i].orderStatus %></h6>
+                            <%} else if(Order[i].orderStatus == "CANCELLED")  { %>
+                              <s> <h6 style="color: red; font-weight: 600;"> <%= Order[i].orderStatus %></h6></s>
+                           <% } else{ %>
+                            <%= Order[i].orderStatus %>
+                                <%}%>    
+                        </td>
+
+                        <td> 
+                           $ <%= Order[i].total %> 
+                        </td>
+
+                        <td> 
+                           <a href="/orderDetails/<%= Order[i]._id %>"> <button class="btn btn-info">
+                            Details
+                          </button></a>
+                              
+                        </td>
+              
+                           
+                    </tr>
+                    <% } %>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+    
+<%- include('partials/homefooter.ejs') -%>
+
+

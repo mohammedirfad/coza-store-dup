@@ -1,0 +1,100 @@
+<%- include('partials/adminheader.ejs') %>
+
+
+<div class="col-12 container shadow p-3 mb-5 bg-white rounded mt-5"  style="    margin-top: 6rem;">
+    <h1>Coupon List</h1>
+    <br>
+   
+    <a href="/admin/addcoupon"><button class="btn btn-info m-2">Add Coupon</button></a>
+
+<br>
+<br>
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">View The coupons Here.</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th scope="col">Coupon Code</th>
+                        <th scope="col">OfferType</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Expiry Date</th>
+                        <th scope="col">Coupon Available</th>
+                        <th scope="col">Minimun</th>
+                        <th scope="col">Maximun</th>
+                  
+                        
+                      
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+               <% for( let i = 0; i < coupon.length; i++ ) { %>
+               
+                 
+                    <tr>
+                        <td scope="row"><%= i+1 %></td>
+                        <td scope="row">
+                          
+                          <%= coupon[i].code %>
+                             </td>
+                             <td scope="row"> <%= coupon[i].percentage %></td>
+                             <td scope="row"> <%= coupon[i].amount %></td>
+                             <td scope="row"> <%= coupon[i].expireDate.toLocaleDateString() %></td>
+                             <td scope="row"> <%= coupon[i].available %></td>
+                             <td scope="row"> <%= coupon[i].minCartAmount %></td>
+                             <td scope="row"> <%= coupon[i].maxRedeemAmount %></td>
+                        
+                       <!-- <td><button class="btn btn-success"><a style="color: white;" href="/admin/edit-product/">Active</a></button></td>
+                        <td> -->
+                           
+                                
+                                <% if ( coupon[i].status=="BLOCK") { %>
+                                    <td class="px-4 py-3 text-xs">
+                                      
+                                      <a href="/admin/couponActive?id=<%= coupon[i]._id %> ">
+                                      <button class="btn btn-success" >
+                                      <span
+                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                                      >
+                                      Activate
+                                      </span>
+                                    </button>
+                                    </a>
+                                    </td>
+                                    <% } else{%>
+                      
+                                      <td class="px-4 py-3 text-xs">
+                                      
+                                        <a href="/admin/couponBlock?id=<%= coupon[i]._id %> ">
+                                        <button class="btn btn-danger" style="margin-top: -7px;" >
+                                        <span
+                                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                                        >
+                                      Block
+                                        </span>
+                                      </button>
+                                      </a>
+                                      </td>
+                    
+                                    <% } %> 
+                        </td>
+                        <td><button class="btn btn-danger"><a style="color: white;" href="/admin/delete-product/" >delete</a></button></td>
+                        
+                           
+                    </tr>
+                    <% } %> 
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div></div>
+
+<%- include('partials/adminfooter.ejs') %>

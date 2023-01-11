@@ -1,0 +1,107 @@
+<%- include('partials/adminheader.ejs') %>
+<main class="h-full pb-16 overflow-y-auto mt-5">
+    <div class="container px-6 mx-auto grid">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Day Report
+      </h2>
+     
+      <!-- TABLE -->
+      <!-- men table start -->
+        <div class="mt-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+      <button  id="download-button" type="button" class="btn btn-danger  " >
+        <a
+       
+          class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+          PDF
+           </a>
+        </button>
+        <button  id="download-button" type="button" class="btn btn-primary  " >
+          <a
+          href="/admin/monthreport"
+            class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+            Month Report
+             </a>
+          </button>
+          <button  id="download-button" type="button" class="btn btn-primary  " >
+            <a
+            href="/admin/yearreport"
+              class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+              Year Report
+               </a>
+            </button>
+    </div>
+      <div class="w-full overflow-hidden rounded-lg shadow-xs mt-4">
+        <div class="w-full overflow-x-auto" id="invoice">
+          <table id="table" class="w-full whitespace-no-wrap" >
+            <thead>
+              <tr
+                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+              >
+                <th class="px-4 py-3" style="color: black; font-size:20px ;">Date</th>
+                <th class="px-4 py-3" style="color: black;font-size:20px ;">Total Order</th>
+                <th class="px-4 py-3" style="color: black;font-size:20px ;">Total Product</th>
+                <th class="px-4 py-3" style="color: black;font-size:20px ;">Amount</th>
+                <th class="px-4 py-3" style="color: black;font-size:20px ;">Profit</th>
+                
+
+              </tr> 
+            </thead>
+            <tbody
+              class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+            >
+            
+            <% for (let salesreport of report) {%>
+              <tr class="text-gray-700 dark:text-gray-400">
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <!-- Avatar with inset shadow -->
+                    <div>
+                      <p class="font-semibold"><%=salesreport._id.day %>/<%=salesreport._id.month %>/<%=salesreport._id.year %></p>
+                    </div>
+                  </div>
+                </td>
+                    <td class="px-4 py-3 text-sm"><%=salesreport.count %></td>
+                <td class="px-4 py-3 text-sm"><%=salesreport.items %></td>
+                <td class="px-4 py-3 text-sm">$<%=salesreport.totalPrice %></td>
+              
+
+                <td class="px-4 py-3 text-sm">$<%= (salesreport.totalPrice*10)/100 %></td>
+              
+              </tr>
+       <% }%>
+
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      <!-- men table end -->
+    </div>
+    <!-- 
+  </div>
+  
+  
+  </div> -->
+  </main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</script>
+<script>
+   const button = document.getElementById('download-button');
+
+   function generatePDF() {
+       // Choose the element that your content will be rendered to.
+       const element = document.getElementById('invoice');
+       // Choose the element and save the PDF for your user.
+       html2pdf().from(element).save();
+   }
+
+   button.addEventListener('click', generatePDF);
+</script>
+<script>
+  $(document).ready(function () {
+      $('#table').DataTable();
+  });
+  </script>
+
+<%- include('partials/adminfooter.ejs') %>

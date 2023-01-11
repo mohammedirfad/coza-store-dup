@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Checkout</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Wish shop project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/user/checkoutcss/styles/bootstrap4/bootstrap.min.css">
+  <link href="/user/checkoutpligins/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/user/checkoutcss/styles/checkout.css">
+  <link rel="stylesheet" type="text/css" href="/user/checkoutcss/styles/checkout_responsive.css">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="/user/images/icons/favicon.png" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/fonts/linearicons-v1.0.0/icon-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/slick/slick.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/MagnificPopup/magnific-popup.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/user/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/user/css/main.css">
+
+
+</head>
+
+<body>
+
+  <div class="super_container">
+
+    <!-- Header -->
+    <header style="margin-top: -7px;">
+      <!-- Header desktop -->
+      <div class="container-menu-desktop">
+        <!-- Topbar -->
+
+
+        <div class="wrap-menu-desktop" style="background-color:#fffdfd;">
+          <nav class="limiter-menu-desktop container">
+
+            <!-- Logo desktop -->
+            <a href="#" class="logo">
+              <img src="/user/images/icons/logo-01.png" alt="IMG-LOGO">
+            </a>
+
+            <!-- Menu desktop -->
+            <div class="menu-desktop">
+              <ul class="main-menu">
+                <li class="active-menu">
+                  <a href="/">Home</a>
+                  <!-- <ul class="sub-menu">
+									<li><a href="index.html">Homepage 1</a></li>
+									<li><a href="home-02.html">Homepage 2</a></li>
+									<li><a href="home-03.html">Homepage 3</a></li>
+								</ul> -->
+                </li>
+
+                <li>
+                  <a href="/productview">Shop</a>
+                </li>
+
+                <!-- <li class="label1" data-label1="hot">
+                  <a href="/shoppingcart-view">Features</a>
+                </li> -->
+
+                <li>
+                  <a href="blog.html">Blog</a>
+                </li>
+
+                <li>
+                  <a href="about.html">About</a>
+                </li>
+
+                <li>
+                  <a href="contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Icon header -->
+            <div class="wrap-icon-header flex-w flex-r-m">
+              <!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                <i class="zmdi zmdi-search"></i>
+              </div>
+
+              <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                <i class="zmdi zmdi-shopping-cart"></i>
+              </div> -->
+
+              <!-- <a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                <i class="zmdi zmdi-favorite-outline"></i>
+              </a> -->
+              <% if(login) {%>
+                <div class="btn-group">
+                  <button type="button" class=" " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    margin-left: 10px;">
+                  <img src="https://cdn.iconscout.com/icon/free/png-256/profile-1439375-1214445.png" style="width: 40px; height: 40px;">
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/profile">Profile View</a>
+                    <a class="dropdown-item" href="/logout">Sign Out</a>
+                         </div>
+  
+  
+            <!-- <button type="button" style="margin-top:-8px ;margin-left: 10px;" class="btn btn-outline-secondary"><a href="/logout" style="color: black;" >
+              Logout
+              </a></button> -->
+  
+              <%} else{ %>
+                <button type="button" style="margin-top:-8px ;margin-left: 10px;" class="btn btn-outline-secondary"><a href="/login" style="color: black;" >
+                  Login
+                  </a></button>
+                  <% }%>
+
+              </div>
+              <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                <a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+                </div>
+    
+                <a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                  <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+              
+          </nav>
+        </div>
+      </div>
+
+      <!-- Header Mobile -->
+      <div class="wrap-header-mobile">
+        <!-- Logo moblie -->
+        <div class="logo-mobile">
+          <a href="/"><img src="/user/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+        </div>
+
+        <!-- Icon header -->
+        <div class="wrap-icon-header flex-w flex-r-m m-r-15">
+          <!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+            <i class="zmdi zmdi-search"></i>
+          </div>
+
+          <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+            <i class="zmdi zmdi-shopping-cart"></i>
+          </div> -->
+          <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+            <a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+            </div>
+  
+          <a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+            <i class="zmdi zmdi-favorite-outline"></i>
+          </a>
+        </div>
+
+        <!-- Button show menu -->
+        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </div>
+      </div>
+
+
+      <!-- Menu Mobile -->
+      <div class="menu-mobile">
+        <ul class="topbar-mobile">
+          <li>
+            <div class="left-top-bar">
+              Free shipping for standard order over $100
+            </div>
+          </li>
+
+          <li>
+            <div class="right-top-bar flex-w h-full">
+              <a href="#" class="flex-c-m p-lr-10 trans-04">
+                Help & FAQs
+              </a>
+
+              <a href="#" class="flex-c-m p-lr-10 trans-04">
+                My Account
+              </a>
+
+              <a href="#" class="flex-c-m p-lr-10 trans-04">
+                EN
+              </a>
+
+              <a href="#" class="flex-c-m p-lr-10 trans-04">
+                USD
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="main-menu-m">
+          <li>
+            <a href="/">Home</a>
+            <!-- <ul class="sub-menu-m">
+						<li><a href="index.html">Homepage 1</a></li>
+						<li><a href="home-02.html">Homepage 2</a></li>
+						<li><a href="home-03.html">Homepage 3</a></li>
+					</ul> -->
+            <span class="arrow-main-menu-m">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </span>
+          </li>
+<!-- 
+          <li>
+            <a href="/productview">Shop</a>
+          </li> -->
+
+          <li>
+            <a href="/productview" class="label1 rs1" data-label1="hot">Shop</a> -->
+         </li>
+          <li>
+            <a href="blog.html">Blog</a>
+          </li>
+
+          <li>
+            <a href="about.html">About</a>
+          </li>
+
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modal Search -->
+      <!-- <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+        <div class="container-search-header">
+          <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+            <img src="/user/images/icons/icon-close2.png" alt="CLOSE">
+          </button>
+
+          <form class="wrap-search-header flex-w p-l-15">
+            <button class="flex-c-m trans-04">
+              <i class="zmdi zmdi-search"></i>
+            </button>
+            <input class="plh3" type="text" name="search" placeholder="Search...">
+          </form>
+        </div>
+      </div> -->
+    </header>
+
+    <!-- Cart -->
+    <!-- <div class="wrap-header-cart js-panel-cart">
+      <div class="s-full js-hide-cart"></div>
+
+      <div class="header-cart flex-col-l p-l-65 p-r-25">
+        <div class="header-cart-title flex-w flex-sb-m p-b-8">
+          <span class="mtext-103 cl2">
+            Your Cart
+          </span>
+
+          <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+            <i class="zmdi zmdi-close"></i>
+          </div>
+        </div>
+
+        <div class="header-cart-content flex-w js-pscroll">
+          <ul class="header-cart-wrapitem w-full">
+            <li class="header-cart-item flex-w flex-t m-b-12">
+              <div class="header-cart-item-img">
+                <img src="/user/images/item-cart-01.jpg" alt="IMG">
+              </div>
+
+              <div class="header-cart-item-txt p-t-8">
+                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                  White Shirt Pleat
+                </a>
+
+                <span class="header-cart-item-info">
+                  1 x $19.00
+                </span>
+              </div>
+            </li>
+
+            <li class="header-cart-item flex-w flex-t m-b-12">
+              <div class="header-cart-item-img">
+                <img src="/user/images/item-cart-02.jpg" alt="IMG">
+              </div>
+
+              <div class="header-cart-item-txt p-t-8">
+                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                  Converse All Star
+                </a>
+
+                <span class="header-cart-item-info">
+                  1 x $39.00
+                </span>
+              </div>
+            </li>
+
+            <li class="header-cart-item flex-w flex-t m-b-12">
+              <div class="header-cart-item-img">
+                <img src="/user/images/item-cart-03.jpg" alt="IMG">
+              </div>
+
+              <div class="header-cart-item-txt p-t-8">
+                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                  Nixon Porter Leather
+                </a>
+
+                <span class="header-cart-item-info">
+                  1 x $17.00
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="w-full">
+            <div class="header-cart-total w-full p-tb-40">
+              Total: $75.00
+            </div>
+
+            <div class="header-cart-buttons flex-w w-full">
+              <a href="/shoppingcart-view" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                View Cart
+              </a>
+
+              <a href="/checkout" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                Check Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+    <!-- Home -->
+
+    <div class="home" style="    height: 541px;margin-top: 34px;">
+      <div class="home_background parallax-window" data-parallax="scroll" data-image-src="" data-speed="0.8" style="background-image: url('https://img.freepik.com/premium-photo/attractive-woman-with-shop-bags-yellow-background_185193-69051.jpg?w=2000');"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="home_container">
+              <div class="home_content">
+                <div class="home_title" style="font-size: 54px;">Checkout</div>
+                <div class="breadcrumbs">
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/product-details">Shopping Cart</a></li>
+                    <li>Shopping Cart</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- Checkout -->
+    <!-- <form  id="forms" novalidate="novalidate"> -->
+    <div class="checkout">
+      <div class="container">
+        <div class="row">
+       
+
+          <!-- Billing Details -->
+          <div class="col-lg-6">
+            <div class="billing">
+              <div class="container mt-5 mb-5 d-flex justify-content-center">
+    
+                <div class="card p-3 bg-white text-center" style="margin-top: -91px;">
+                    
+                    <div>
+                        <img src="https://i.imgur.com/p3hE5e2.png" width="70"/>
+                    </div>
+                    
+                    <h6 class="mt-3">Do you still want more discount</h6>
+                    <span class="promo-text">Enter a promotional code and get<br> the highest discount we have</span>
+                    <div class="mt-3 px-4">
+                    <input class="form-control" type="text" placeholder="Enter Promocode" id="coupenInput" name="coupencode">
+                    <button class="btn btn-success w-100 mt-2"  onclick="applyCoupon('<%=cartItems.cartTotal %> ')" id="ApplyButton" value="apply coupon">Get the highest discount</button>
+          
+                    </div>
+                    <div class="px-4 mt-2">
+                      <p class="pl-5" id="CouponErr"></p>
+        
+        </div>
+                  
+                </div>
+                
+            </div>
+              <div class="checkout_title">billing details
+                <br>
+                <p style="font-size:20px;">Select Your Address :-</p>
+              </div>
+
+              <% if (user_address.length) { %>
+
+              <div class="col-sm-12 ">
+                <label for="subject">
+                  <h3 style="color: crimson; font-family: sans-serif;"> </h3>
+                  <p class="ptag" style="
+                              margin-top: -34px;
+                              margin-left: 119px;"></p>
+                </label>
+                <div class="accordion" style=" margin-top: 63px;left: -49px;" id="accordionExample">
+
+                  <% for( let i = 0; i < user_address.length; i++ ) { %>
+                  <div class="card" style="    background-color: #0000001a;">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne<%= user_address[i]._id %>" aria-expanded="true" aria-controls="collapseOne" style=" 
+                                        color: black;
+                                     font-family: sans-serif;
+                                      font-size: 17px;
+                                      font-weight: 600;">
+                          <%= i+1 %> <%= %> <%= user_address[i].fullname %>
+                        </button>
+                      </h2>
+                    </div>
+
+                    <div id="collapseOne<%= user_address[i]._id %>" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+
+                        <% if (i==0) { %>
+                        <label><input type="radio" id="<%= user_address[i]._id %>" value="<%= i %>" name="address" checked>
+                          <p style=" margin-top: -20px;
+                                            margin-left: 23px;">Select address</p>
+                        </label>
+                        <% } else { %>
+                        <label><input type="radio" id="<%= user_address[i]._id %>" value="<%= i %>" name="address">
+                          <p style=" margin-top: -20px;
+                                                margin-left: 23px;">Select address</p>
+                        </label>
+                        <% } %>
+                        Name: <%=user_address[i].fullname %>,<br>
+
+                        phone: <%=user_address[i].phone %><br>
+                        Address:
+                        <%=user_address[i].city %>,
+                        <%=user_address[i].state %>,
+                        <%=user_address[i].street %>,
+                        <%=user_address[i].pincode %>
+                      </div>
+                      <div class="w-100 d-flex">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <!-- <input type="submit" value="Send Message" class="btn btn-primary"> -->
+                            <a href="/edit-address">
+                              <button class="addtocart  btn btn-info btn-addtocart" onclick="edit()">
+                                Edit Address
+                              </button>
+                            </a>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <!-- <input type="submit" value="Send Message" class="btn btn-primary"> -->
+                            <a onclick="deleteAddress( '<%= user_address[i]._id %>')">
+                              <button class="addtocart  btn btn-danger btn-addtocart" id="btn">
+                                Delete Address
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <% } %>
+                </div>
+                <!--  -->
+              </div>
+
+
+
+              <% } else { %>
+              <div>
+                <div class="card mt-3" style="width: auto;    width: 122px;
+                            justify-content: center;
+                            margin-left: 100px;">
+
+                </div>
+                <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; font-size: 20px;">opps! no address found
+                  Add your address
+                </h3>
+
+              </div>
+
+
+              <% } %>
+              <div class="checkout_form_container">
+                <div class="card mt-3" style="width: auto;    width: 70px;
+                            justify-content: center;
+                            margin-left: 100px;">
+                  <a href="/address-manage"><button class="btn btn-success">Add Address</button></a>
+                </div>
+
+
+
+                <!-- <div class="cupon_area pt-5">
+                  <div class="check_title" >
+                    
+                  </div>
+
+                  <input class="mt-3" type="text" placeholder="Enter coupon code" id="coupenInput" name="coupencode" style="width: 200px;
+                  border: 0.5px solid gray;
+                  height: 35px;
+                  border-radius: 8px;
+              ">
+                <div class="alert alert-danger" role="alert" id="couponErr" style="visibility:hidden;">
+                   Please enter the coupen Code.
+                  </div> -->
+                  <!-- <p class="pl-5" id="CouponErr"></p> -->
+               
+                
+<!-- 
+                  <input class="mt-4 btn-info" type="button " onclick="applyCoupon('<%=cartItems.cartTotal %> ')" style="display: block;  width: 183px;" id="ApplyButton" value="apply coupon" class=" tp_btn btn-primery"> -->
+                  <!-- <button class="tp_btn" style=" background: #ffba00;color: #fff;border-color: #ffba00;" >Apply Coupon</button> -->
+              
+                
+                <!-- </div> --> -
+
+           
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- Cart Details -->
+          <% if(cartItems!=null && cartItems.items.length !=0){ %>
+          <div class="col-lg-6">
+            <div class="cart_details">
+              <div class="checkout_title">cart total</div>
+              <div class="cart_total">
+
+                <ul>
+                  <li class="d-flex flex-row align-items-center justify-content-start">
+                    <div class="cart_total_title" style="font-weight: bold;">Product</div>
+                    <div class="cart_total_price ml-auto" style="font-weight: bold;">Total</div>
+                  </li>
+
+
+                  <% for(cart of cartItems.items)  { %>
+                  <li class="d-flex flex-row align-items-center justify-content-start">
+
+                    <div class="cart_total_title"><%= cart.product.name%> x <%= cart.quantity %></div>
+                    <div class="cart_total_price ml-auto">$ <%= cart.Totalprice%></div>
+
+                  </li>
+                  <% } %>
+
+
+                  <li class="d-flex flex-row align-items-center justify-content-start">
+                    <div class="cart_total_title font-weight-bold">Subtotal</div>
+                    <div class="cart_total_price ml-auto">
+                      <input type="text" name="subtotal" id="sub-totalAmount" class="form-control" value="<%= cartItems.cartTotal%>" hidden>
+
+                      $<%-cartItems.cartTotal %>
+                    </div>
+                  </li>
+
+                  <li class="d-flex flex-row align-items-center justify-content-start">
+                    <div class="cart_total_title font-weight-bold">Discount Amount</div>
+                    <div class="cart_total_price ml-auto">
+                      <input type="text" name="subtotal" id="discount0Amount" class="form-control" value="" hidden>
+
+                      <span id="discountAmount"> 0.00</span>
+                    </div>
+                  </li>
+
+
+
+
+
+                  <li class="d-flex flex-row align-items-center justify-content-start">
+                    <div class="cart_total_title font-weight-bold">Shipping</div>
+                    <div class="cart_total_price ml-auto">$0.00</div>
+                  </li>
+                  <li class="d-flex flex-row align-items-start justify-content-start total_row">
+                    <div class="cart_total_title">Total</div>
+
+                    <div class="cart_total_price ml-auto" id="grandTotalAmount">$<%-cartItems.cartTotal %></div>
+                    <input type="text" name="total" id="grandTotal" class="form-control" value="<%= cartItems.cartTotal%>" hidden>
+                  </li>
+                </ul>
+              </div>
+
+
+              <div class="payment_options">
+                <div>
+                  <input type="radio" id="payment_1_COD" name="Paymentmethod" value="cashOnDelivery" class="regular_radio">
+                  <label for="radio_payment_1">cash on delivery</label>
+                </div>
+                <div>
+                  <input type="radio" id="payment_3_Wallet" name="Paymentmethod" value="Wallet" class="regular_radio">
+                  <label for="radio_payment_1">Wallet</label>
+                </div>
+                <div>
+                  <input type="radio" id="payment_2_Razorpay" name="Paymentmethod" value="Razorpay" class="regular_radio" checked>
+                  <label for="radio_payment_2">Razorpay</label>
+                  <div class="visa payment_option"><a href="#"><img src="/user/checkoutimg/images/visa.jpg" alt=""></a></div>
+                  <div class="master payment_option"><a href="#"><img src="/user/checkoutimg/images/master.jpg" alt=""></a></div>
+                </div>
+
+                <% if(user_address.length == 0){ %>
+                <button class="cart_total_button" type="submit" onclick="placeorder()" disabled style="visibility: hidden;">place order</button>
+
+                <%} else { %>
+                <button class="cart_total_button" type="submit" onclick="placeorder()">place order</button>
+                <%}%>
+                 
+                </div>
+
+             
+
+                 
+              </div>
+            </div>
+            <% }  else {%>
+                <div class="col-lg-6">
+                  <div class="cart_details">
+                    <div class="checkout_title">NO Items Avilable in the carts or add your address</div>
+                    <div class="cart_total">
+
+
+                    </div>
+                    <div class="payment_options">
+
+
+
+                    </div>
+                  </div>
+                </div>
+                <%} %>
+
+
+              </div>
+            </div>
+          </div>
+          <!-- </form> -->
+
+          <!-- Newsletter -->
+
+          <div class="newsletter">
+            <div class="newsletter_content">
+              <div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="/user/images/slide-03.jpg" data-speed="0.8"></div>
+              <div class="container">
+                <div class="row options">
+
+                  <!-- Options Item -->
+                  <div class="col-lg-3">
+                    <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                      <div class="option_image"><img src="/user/checkoutimg/images/option_1.png" alt=""></div>
+                      <div class="option_content">
+                        <div class="option_title">30 Days Returns</div>
+                        <div class="option_subtitle">No questions asked</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Options Item -->
+                  <div class="col-lg-3">
+                    <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                      <div class="option_image"><img src="/user/checkoutimg/images/option_2.png" alt=""></div>
+                      <div class="option_content">
+                        <div class="option_title">Free Delivery</div>
+                        <div class="option_subtitle">On all orders</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Options Item -->
+                  <div class="col-lg-3">
+                    <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                      <div class="option_image"><img src="/user/checkoutimg/images/option_3.png" alt=""></div>
+                      <div class="option_content">
+                        <div class="option_title">Secure Payments</div>
+                        <div class="option_subtitle">No need to worry</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Options Item -->
+                  <div class="col-lg-3">
+                    <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                      <div class="option_image"><img src="/user/checkoutimg/images/option_4.png" alt=""></div>
+                      <div class="option_content">
+                        <div class="option_title">24/7 Support</div>
+                        <div class="option_subtitle">Just call us</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row newsletter_row">
+                  <div class="col">
+                    <div class="section_title_container text-center">
+                      <div class="section_subtitle">only the best</div>
+                      <div class="section_title">subscribe for a 20% discount</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row newsletter_container">
+                  <div class="col-lg-10 offset-lg-1">
+                    <div class="newsletter_form_container">
+                      <form action="#">
+                        <input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
+                        <button type="submit" class="newsletter_button">subscribe</button>
+                      </form>
+                    </div>
+                    <div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+
+          <footer class="footer">
+            <div class="container">
+              <div class="row">
+                <div class="col text-center">
+                  <div class="footer_logo"><a href="#"><img src="/user/images/icons/logo-01.png" alt="IMG-LOGO"></a></div>
+                  <nav class="footer_nav">
+                    <ul>
+                      <li><a href="/">home</a></li>
+                      <li><a href="/productview">clothes</a></li>
+                      <li><a href="/productview">accessories</a></li>
+                      <li><a href="/productview">lingerie</a></li>
+                      <li><a href="/contact">contact</a></li>
+                    </ul>
+                  </nav>
+                  <div class="footer_social">
+                    <ul>
+                      <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="copyright">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>
+                      document.write(new Date().getFullYear());
+                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">mohammed irfad</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+
+
+
+        <style>
+          .promo-text{
+    font-size:13px;
+}
+
+.form-control{
+    font-size:14px;
+    height:42px;
+}
+
+.form-control:focus{
+    box-shadow:none;
+}
+
+.btn-success , .btn-primary{
+    height:42px;
+    font-size:14px;
+}
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+
+
+
+        <script src="/user/checkoutjs/js/jquery-3.2.1.min.js"></script>
+        <script src="/user/checkoutcss/styles/bootstrap4/popper.js"></script>
+        <script src="/user/checkoutcss/styles/bootstrap4/bootstrap.min.js"></script>
+        <script src="/user/checkoutpligins/plugins/easing/easing.js"></script>
+        <script src="/user/checkoutpligins/plugins/parallax-js-master/parallax.min.js"></script>
+        <script src="/user/checkoutjs/js/checkout_custom.js"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+        <script>
+          // $('#forms').on('submit', async function (e) {
+          // 	 e.preventDefault()
+          // 	console.log("hiiii")
+
+          // 	const addId = $('input[name="address"]:checked').val();
+          // 	const paymode=$('input[name="Paymentmethod"]:checked').val(); 
+
+
+          // 	console.log(addId,paymode)
+
+          // 	const response = await axios({
+          //           method : 'post',
+          // 		url: '/checkout',
+          // 		data:{
+          // 			addId,paymode
+
+          // 		}
+
+          // 	})
+
+          // })
+
+          var couponCode;
+          async function applyCoupon(Carttotal) {
+
+           
+            console.log("carttotal", Carttotal)
+
+            couponCode = document.getElementById('coupenInput').value;
+            console.log(couponCode)
+            console.log("carttotal.............")
+
+            let total = Carttotal;
+            if (couponCode == "") {
+              // document.getElementById("couponErr").style.visibility="visible";
+              document.getElementById("CouponErr").style.color = "red";
+              document.getElementById("CouponErr").style.fontSize = "20px";
+			        document.getElementById("CouponErr").innerHTML = "Enter a Coupon Code";
+              
+            }
+
+            else{
+            
+
+              let response = await axios({
+                method : 'post',
+                url    : '/verifycoupon',
+                data   : {
+
+                  couponCode,total
+                }
+              })
+              if(response.data.status == false){
+                console.log("coupon ")
+                document.getElementById("CouponErr").style.color = "red";
+                document.getElementById("CouponErr").style.fontWeight="600"
+				        document.getElementById("CouponErr").innerHTML = response.data.couponMsg;
+              }
+              else{
+                console.log("couponjhqwdouh ")
+                document.getElementById("CouponErr").style.color = "green";
+                document.getElementById("CouponErr").style.fontSize = "20px";
+			          document.getElementById("CouponErr").innerHTML = "Coupon Applied Successfully";
+                document.getElementById("discountAmount").innerHTML = response.data.Amount;
+                document.getElementById("grandTotalAmount").innerHTML =  "$" +response.data.grandtotal;
+                document.getElementById("grandTotal").innerHTML= "$" +response.data.grandtotal;
+              }
+            }
+          }
+
+
+
+
+     async function placeorder() {
+            const address = $('input[type="radio"][name="address"]:checked').val();
+            const paymode = $('input[type="radio"][name="Paymentmethod"]:checked').val();
+
+            const couponamount = document.getElementById("discountAmount").innerText;
+            const couponCode = document.getElementById('coupenInput').value;
+            const subTotal   = document.getElementById('sub-totalAmount').value;
+            const CartTotal  = document.getElementById('grandTotal').value;
+
+            console.log('couponAmount:',couponamount)
+
+            console.log("lkg", address)
+            console.log(paymode)
+
+            console.log(couponCode,subTotal,CartTotal)
+
+            const response = await axios({
+              method: 'post',
+              url: '/checkout',
+              data: {
+                address,
+                paymode,
+                couponamount,
+                couponCode,
+                subTotal
+
+              }
+            })
+
+            if (response.data) {
+              swal.fire({
+                  title: "order placed succesfully",
+                  showDenyButton: true,
+                  confirmButtonText: "see Orders",
+                  denyButtonText: `continue Shopping`
+
+                })
+
+                .then((result) => {
+                  if (result.isConfirmed) {
+                    location.href = '/order-success' 
+
+                  } else if (result.isDenied) {
+                    location.href = '/shoppingcart-view'
+                  }
+                })
+            } else {
+              alert("something wrong,,,,")
+            }
+
+
+
+          }
+
+          async function deleteAddress(id) {
+
+            // let dot = await axios.delete(`/profile?address=${id}`)
+
+            // console.log("hii")
+
+
+            Swal.fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, delete it!",
+            }).then(async (result) => {
+              if (result.isConfirmed) {
+                await axios.delete(`/profile?address=${id}`)
+                  .then((result) => {
+                    if (result.data) {
+                      Swal.fire(
+                        "Deleted!",
+                        "Your file has been deleted.",
+                        "success"
+                      ).then(() => {
+
+                        location.reload()
+                      })
+                    } else {
+                      alert("something went wrong");
+                      Swal.fire(
+                        "",
+                        "something went wrong",
+                        "failed"
+                      ).then(() => {
+
+                        // document.getElementById('btn').value=
+
+                        // location.reload()
+                      })
+
+
+
+
+                    }
+                  });
+              }
+            });
+          }
+        </script>
+
+
+
+</body>
+
+</html>

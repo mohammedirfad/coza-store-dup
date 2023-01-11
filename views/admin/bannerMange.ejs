@@ -1,0 +1,77 @@
+<%- include('partials/adminheader.ejs') %>
+
+
+
+
+<div class="col-12 container shadow p-3 mb-5 bg-white rounded mt-5"  style="    margin-top: 6rem;">
+    <h1>Banner   List</h1>
+    <br>
+   
+    <a href="/admin/addBanner"><button class="btn btn-info m-2">Add Banner</button></a>
+
+<br>
+<br>
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">View The Banner Here.</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th scope="col"> IMAGE</th>
+                        <th scope="col">CATEGORY</th>
+                        <th scope="col">TITLE</th>
+                        <th scope="col">DESCRIPTION</th>
+                        <th scope="col">OFFER</th>
+                        <th scope="col">DELETE</th>
+                  
+                        
+                      
+                  
+                    </tr>
+                </thead>
+                <tbody>
+               
+
+                    <% for( let i = 0; i < Banner_details.length; i++ ) { %>
+                    
+                 
+                    
+                    <tr>
+                        
+                             <td scope="row"><%= i+1 %></td>
+                             <td scope="row">
+                                <img class="rounded-circle me-lg-2" src="\admin\img\<%- Banner_details[i].image[0].filename %> "  style="width: 40px; height: 40px;"   alt="some thing wrong">
+                             </td>
+                             <td scope="row">
+                                <%- Banner_details[i].category %>
+                             </td>
+                             <td scope="row">
+                                <%- Banner_details[i].title %>
+                             </td>
+                             <td scope="row"><%- Banner_details[i].text %></td>
+
+                             <td scope="row"><%- Banner_details[i].offer %></td>
+                        
+                     
+
+                        <td><button class="btn btn-danger"><a style="color: white;" href="/admin/delete-banner/<%- Banner_details[i]._id %>" >delete</a></button></td>
+                        
+                           
+                    </tr>
+                    <% } %>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div></div>
+
+
+
+
+
+<%- include('partials/adminfooter.ejs') %>

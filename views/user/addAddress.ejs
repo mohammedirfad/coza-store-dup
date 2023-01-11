@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>account setting or edit profile</title>
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="/user/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/user/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/user/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/user/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/user/css/main.css">
+
+
+
+   
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<!-- Header -->
+<header style="margin-top: -41px;">
+	<!-- Header desktop -->
+	<div class="container-menu-desktop">
+		<!-- Topbar -->
+		<div class="top-bar">
+			<div class="content-topbar flex-sb-m h-full container">
+				<div class="left-top-bar">
+					Free shipping for standard order over $100
+				</div>
+
+				<div class="right-top-bar flex-w h-full">
+					<a href="#" class="flex-c-m trans-04 p-lr-25">
+						Help & FAQs
+					</a>
+
+					<a href="#" class="flex-c-m trans-04 p-lr-25">
+						My Account
+					</a>
+
+					<a href="#" class="flex-c-m trans-04 p-lr-25">
+						EN
+					</a>
+
+					<a href="#" class="flex-c-m trans-04 p-lr-25">
+						USD
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrap-menu-desktop">
+			<nav class="limiter-menu-desktop container">
+				
+				<!-- Logo desktop -->		
+				<a href="#" class="logo">
+					<img src="/user/images/icons/logo-01.png" alt="IMG-LOGO">
+				</a>
+
+				<!-- Menu desktop -->
+				<div class="menu-desktop">
+					<ul class="main-menu">
+						<li class="active-menu">
+							<a href="/">Home</a>
+							<!-- <ul class="sub-menu">
+								<li><a href="index.html">Homepage 1</a></li>
+								<li><a href="home-02.html">Homepage 2</a></li>
+								<li><a href="home-03.html">Homepage 3</a></li>
+							</ul> -->
+						</li>
+
+						<li>
+							<a href="/productview">Shop</a>
+						</li>
+
+						
+
+						<li>
+							<a href="blog.html">Blog</a>
+						</li>
+
+						<li>
+							<a href="about.html">About</a>
+						</li>
+
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>	
+
+				<!-- Icon header -->
+				<div class="wrap-icon-header flex-w flex-r-m">
+					<% if(login) {%>
+						<div class="btn-group">
+							<button type="button" class=" " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    margin-left: 10px;">
+							<img src="https://cdn.iconscout.com/icon/free/png-256/profile-1439375-1214445.png" style="width: 40px; height: 40px;">
+							</button>
+							<div class="dropdown-menu">
+							  <a class="dropdown-item" href="/profile">Profile View</a>
+							  <a class="dropdown-item" href="/logout">Sign Out</a>
+						   </div>
+
+
+				<!-- <button type="button" style="margin-top:-8px ;margin-left: 10px;" class="btn btn-outline-secondary"><a href="/logout" style="color: black;" >
+					Logout
+					</a></button> -->
+
+					<%} else{ %>
+						<button type="button" style="margin-top:-8px ;margin-left: 10px;" class="btn btn-outline-secondary"><a href="/login" style="color: black;" >
+							Login
+							</a></button>
+							<% }%>
+
+				</div>
+						<%if(login) { %>
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<%=length %>">
+					<a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+					</div>
+
+					<a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<i class="zmdi zmdi-favorite-outline"></i>
+					</a>
+				<% } else{ %>
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="0">
+						<a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+						</div>
+
+						<a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+							<i class="zmdi zmdi-favorite-outline"></i>
+						</a>
+
+					<%} %>
+			</nav>
+			</div>
+		</div>	
+	</div>
+	
+	</div>
+
+	<!-- Header Mobile -->
+	<div class="wrap-header-mobile">
+		<!-- Logo moblie -->		
+		<div class="logo-mobile">
+			<a href="/"><img src="/user/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+		</div>
+
+		<!-- Icon header -->
+		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<%if(login) { %>
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<%=length %>">
+				<a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+				</div>
+
+				<a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+					<i class="zmdi zmdi-favorite-outline"></i>
+				</a>
+			<% } else{ %>
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="0">
+					<a href="/shoppingcart-view" style="color: black;">	<i class="zmdi zmdi-shopping-cart"></i></a>
+					</div>
+
+					<a href="/wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<i class="zmdi zmdi-favorite-outline"></i>
+					</a>
+
+				<%} %>
+		</div>
+
+		<!-- Button show menu -->
+		<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+			<span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			</span>
+		</div>
+	</div>
+
+
+	<!-- Menu Mobile -->
+	<div class="menu-mobile">
+		<ul class="topbar-mobile">
+			<li>
+				<div class="left-top-bar">
+					Free shipping for standard order over $100
+				</div>
+			</li>
+
+			<li>
+				<div class="right-top-bar flex-w h-full">
+					<a href="#" class="flex-c-m p-lr-10 trans-04">
+						Help & FAQs
+					</a>
+
+					<a href="#" class="flex-c-m p-lr-10 trans-04">
+						My Account
+					</a>
+
+					<a href="#" class="flex-c-m p-lr-10 trans-04">
+						EN
+					</a>
+
+					<a href="#" class="flex-c-m p-lr-10 trans-04">
+						USD
+					</a>
+				</div>
+			</li>
+		</ul>
+
+		<ul class="main-menu-m">
+			<li>
+				<a href="/">Home</a>
+				<!-- <ul class="sub-menu-m">
+					<li><a href="index.html">Homepage 1</a></li>
+					<li><a href="home-02.html">Homepage 2</a></li>
+					<li><a href="home-03.html">Homepage 3</a></li>
+				</ul> -->
+				<span class="arrow-main-menu-m">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</span>
+			</li>
+
+			<li>
+				<a href="/productview">Shop</a>
+			</li>
+
+			
+
+			<li>
+				<a href="blog.html">Blog</a>
+			</li>
+
+			<li>
+				<a href="about.html">About</a>
+			</li>
+
+			<li>
+				<a href="contact.html">Contact</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Modal Search -->
+	<!-- <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+		<div class="container-search-header">
+			<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+				<img src="/user/images/icons/icon-close2.png" alt="CLOSE">
+			</button>
+
+			<form class="wrap-search-header flex-w p-l-15">
+				<button class="flex-c-m trans-04">
+					<i class="zmdi zmdi-search"></i>
+				</button>
+				<input class="plh3" type="text" name="search" placeholder="Search...">
+			</form>
+		</div>
+	</div> -->
+</header>
+
+
+<div class="container" style="margin-top: 168px;">
+<div class="row gutters">
+<div class="">
+<div class="card h-100">
+	<div class="card-body">
+		<div class="account-settings">
+			<div class="user-profile">
+				<div class="user-avatar">
+					<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+				</div>
+				<!-- <h5 class="user-name">Yuki Hayashi</h5>
+				<h6 class="user-email">yuki@Maxwell.com</h6> -->
+			</div>
+			<div class="about">
+				<h5>About : </h5>
+				<p>Let Us Know More About You</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<form action="/address-manage" method="post" id="addressform" style="width: 942px;">	
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+<div class="card h-100">
+	<div class="card-body">
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<h6 class="mb-2 text-primary">Personal Details</h6>
+			</div>
+
+		
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="fullName">Full Name</label>
+					<input type="text" name="fullname" class="form-control" id="fullName" placeholder="Enter full name">
+				</div>
+			</div>
+			<br>
+			<!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="eMail">Email</label>
+					<input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+				</div>
+			</div> -->
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="phone">Phone</label>
+					<input  type="number" name="phone" class="form-control" id="" placeholder="Enter phone number">
+				</div>
+			</div>
+			<!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				 <div class="form-group">
+					<label for="website">Website URL</label>
+					<input type="url" class="form-control" id="website" placeholder="Website url">
+				</div> -->
+			<!-- </div>  -->
+		</div>
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<h6 class="mt-3 mb-2 text-primary">Address</h6>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="Street">Street</label>
+					<input type="text" name="street"  class="form-control" id="Street" placeholder="Enter Street">
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="ciTy">City</label>
+					<input type="name" name="city"  class="form-control" id="ciTy" placeholder="Enter City">
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="sTate">State</label>
+					<input type="text" name="state" class="form-control" id="sTate" placeholder="Enter State">
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="zIp">Zip Code</label>
+					<input type="number" name="pincode" class="form-control" id="zIp" placeholder="Zip Code">
+				</div>
+			</div>
+		</div>
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="text-right">
+					<button type="button"  class="btn btn-secondary">Cancel</button>
+					<button type="submit"  class="btn btn-primary" onclick="add()" >Add</button>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+</div>
+</form>
+
+
+
+</div>
+
+
+</div>
+<br><br><br>
+
+<style type="text/css">
+body {
+    margin: 0;
+    padding-top: 40px;
+    color: #2e323c;
+    background: #f5f6fa;
+    position: relative;
+    height: 100%;
+}
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+.form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
+}
+
+.card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
+.error{
+	color: red;
+	font-weight: 500;
+	font-family: sans-serif;
+}
+
+</style>
+
+<script type="text/javascript">
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="crossorigin="anonymous"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+		jQuery('#addressform').validate({
+		rules:{
+			fullname:{
+				required:true,
+				minlength:5
+			},
+			phone:{
+				required:true,
+				minlength:10,
+				maxlength:10,
+			},
+			street:{
+				required:true
+			},
+			city:{
+				required:true
+			},
+			state:{
+				required:true
+			},
+			pincode:{
+				required:true
+
+			}
+
+
+		},
+		messages:{
+			fullname:{
+				required:"Please enter your Name",
+				minlength:"Name must be 5 char long"
+			},
+			phone:{
+				required:"Please enter your Phone Number",
+				minlength:"phone number must be 10 digit long",
+				maxlength:"phone number cannot exceed 10 digit long"
+			}
+			
+		}
+	})
+
+</script>
+
+<script>
+
+
+
+
+
+
+	
+
+// function add(){
+// 	Swal.fire({
+//   position: 'center',
+//   icon: 'success',
+//   title: 'address has been Created successfully',
+//   showConfirmButton: false,
+//   timer: 1500
+// })
+
+
+
+</script>
+
+<!-- </body>
+	<%- include('partials/homefooter.ejs') -%>
+</html> -->

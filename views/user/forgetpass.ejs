@@ -1,0 +1,50 @@
+<%- include('partials/homeheader.ejs') -%>
+
+
+<hr>
+<div class="container">
+    <div class="row" style="position: relative;
+    top: 50%;
+    left: 0%;
+    margin-left: 400px;
+    margin-top: 141px;">
+        <div class="row" style="    border: 1px solid #00000038;
+        width: 500px;
+        height: 316px;">
+            <div class="col-xl-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                          <h3><i class="fa fa-lock fa-4x"></i></h3>
+                          <h2 class="text-center">Forgot Password?</h2>
+                          <br>
+                          <p>You can reset your password here.</p>
+                            <div class="panel-body">
+                              
+                              <form method="post" action="forgetpassword">
+                                <fieldset>
+                                  <div class="form-group">
+                                    <div class="input-group">
+                                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                      
+                                      <input id="emailInput" name="email" placeholder="email address" class="form-control" type="email" >
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <div class="form-group">
+                                    <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit">
+                                  </div>
+                                </fieldset>
+                              </form>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<%- include('partials/homefooter.ejs') -%>

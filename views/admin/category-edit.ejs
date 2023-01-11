@@ -1,0 +1,74 @@
+<%- include('partials/adminheader.ejs') %>
+
+  <section>
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <form action="/admin/categoryedited/<%- edit_cat[0]._id %>" method="post" enctype="multipart/form-data">
+            <div class="card shadow p-3 mb-5 bg-white rounded " style="border-radius: 1rem;">
+              <!-- <div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div> -->
+              <div class="card-body p-5 text-center" style="    padding: 0.5rem;    margin-top: -48px;
+            ">
+
+                <div class="mb-md-5 mt-md-4 pb-5">
+
+                  <h2 class="fw-bold mb-2 text-uppercase">Edit Category</h2>
+                  <p class="text-dark-50 mb-5">Please Add product category Here.</p>
+
+
+
+                  <div class="form-group">
+                    <label for="">CategoryName:<br></label>
+                    <input type="text" class="form-control" id="exampleInputName1" name="name"
+                      value="<%- edit_cat[0].name %>" />
+                  </div>
+                  <br>
+
+                  <div class="form-group">
+                    <label for=""> Current_IMG :<br></label>
+                    <!-- <input type="text" class="form-control" id="exampleInputName1" name="name"
+                      <br>
+                      value="<%- edit_cat[0].name %>" /> -->
+                      <br>
+
+                      <img class=" me-lg-2" src="\admin\img\<%- edit_cat[0].image[0].filename %> "  style="width: 100px; height: 100px;"  id="imgview"  alt="some thing wrong">
+                  </div>
+
+                  <br>
+
+                  <div class="form-group">
+                    <label>Image upload :</label>
+
+                    <div class="input-group col-xs-12">
+                      <input class="form-control file-upload-info" type="file"
+                        accept="image/jpeg,image/gif,image/png,image/x-eps" id="image" name="image"
+                        value="<%- edit_cat[0].image[0].filename %>" onchange="viewImage(event)" multiple />
+                      <!-- <span class="input-group-append"> -->
+                      <!-- <button class="file-upload-browse btn btn-primary" type="button">Upload</button> -->
+                      <!-- </span> -->
+                    </div>
+                  </div>
+                  <br>
+
+
+
+                  <button class="btn btn-primary btn-lg px-5" type="submit">Edit Category</button>
+
+
+                </div>
+
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function viewImage(event){
+      document.getElementById('imgview').src=URL.createObjectURL(event.target.files[0])
+    }
+  </script>
+
+  <%- include('partials/adminfooter.ejs') %>

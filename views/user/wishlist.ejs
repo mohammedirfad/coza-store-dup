@@ -1,0 +1,165 @@
+<%- include('partials/homeheader.ejs') -%>
+
+
+<div class="container" style="margin-top: 90px;">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <a href="/" class="stext-109 cl8 hov-cl1 trans-04">
+            Home
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+       
+
+        <span class="stext-109 cl4">
+         Wishlist
+        </span>
+    </div>
+</div>
+    
+
+
+<% if(getwish!=null && getwish.items.length !=0){ %>
+  
+<!-- 
+  <form class="bg0 p-t-75 p-b-85"> -->
+    <div class="container img-fluid" style="background-image: url('https://media.istockphoto.com/id/1146367620/vector/abstract-white-background.jpg?s=612x612&w=0&k=20&c=v6spf6OW1BS6KaM4Lz3BEfYK8_o5hUHF_4NvcpBpn6w=');">
+        <div class="row">
+            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 mt-5">
+                <div class="m-l-25 m-r--38 m-lr-0-xl" style="    width: 700px;text-align: center;">
+                    <div class="wrap-table-shopping-cart" style="border-color: #00000033;">
+                        <table class="table-shopping-cart">
+                            <tr class="table_head">
+                                <th class="column-1" style="padding-left: 23px;">Product</th>
+                                <th class="column-2" style="text-align: center;">Name</th>
+                                <th class="column-3" style="text-align: center;">Price</th>
+                                <th class="column-4" style=" text-align: center;">adtocart</th>
+                                <th class="column-4" style="text-align: center;">remove</th>
+                               
+                            </tr>
+                    <% for(wishlist of getwish.items) { %>
+
+                        
+
+                            <tr class="table_row">
+                                <td class="column-1" style="    padding-left: 23px;">
+                                    <div class="how-itemcart1">
+                                        <!-- <img src="/user/images/item-cart-04.jpg" alt="IMG"> -->
+                                        <img src="\admin\img\<%= wishlist.product.image[0].filename %>" alt="IMG"  style="width: 70px; height: auto;">
+                                    </div>
+                                </td>
+                                <td class="column-2"><%- wishlist.product.name %></td>
+                                <td class="column-3">$<%- wishlist.product.price %></td>
+
+
+                        <td class="column-4">
+                             <div class="wrap-num-product flex-w m-l-auto m-r-0" style="width: 102px;
+                             height: 45px;
+                         
+                             border-radius: 3px;
+                             overflow: hidden;">
+                                <button class="btn btn-success" style="border-radius: 34px;" onclick="wishtocart('<%= wishlist.product._id %> ','<%- wishlist.product.name %>')">addtocart</button>
+
+                                    
+                             </div>
+                         </td>
+
+
+                 
+
+                                <td class="column-5"><img class="btn" src="https://img.icons8.com/color/48/null/delete-forever.png"   onclick="delwish('<%= wishlist.product._id %>','<%- wishlist.product.name %>')"/></td>
+                    </tr>
+                    <% } %>
+
+                        </table>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+ <!-- </form> -->
+
+ <% } else { %>
+    <div class="mb-5 d-flex justify-content-center align-items-center flex-column">
+        <img src="https://cdn.dribbble.com/users/1010436/screenshots/13921028/dribble_shot_62_4x.jpg " style="    width: auto;
+        height: 640px;
+        margin-top: -100px;" alt="hii">
+        <!-- <h5 class=" pb-3 text-center">Your cart is empty <br>Please add few products</h5> -->
+        <a class="mb-5 btn mt-5"  style=" top: -148px;
+        position: relative; background-color: 3897EE; width: 100px; height: 40px;"  
+        href="/"></a>
+    </div>
+
+
+    <% } %>
+    
+
+    <script>
+        // async function wishtocart(wish_id)
+        // {
+
+        //     console.log(wish_id)
+
+        //     const response = await axios.post('/wishlist',{wish_id})
+        //         // method: 'post',
+        //         // url   : '/wishlist',
+        //         // data  :{
+        //         //     wish_id,wish_name
+        //         // }
+            
+        //     if(response.data){
+        //         console.log("hiiiiiii")
+        //     }
+        //     else{
+        //         console.log("helloooo");
+        //     }
+
+        // }
+
+
+
+        function wishtocart(productId) {
+  axios.post(`/wishlist?productId=${productId}`).then((proName) => {
+    Swal.fire(proName.data, "is add to cart!", "success");
+  });
+}
+
+
+
+
+        async function delwish(wish_id,wish_name)
+        {
+            const res = await axios({
+                method : 'delete',
+                url    : '/wishlist',
+                data   : {
+                    wish_id , wish_name
+                }
+            })
+            if(res.data){
+                console.log("working...")
+                location.reload()
+
+            }
+            else{
+                console.log("not working...");
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+<%- include('partials/homefooter.ejs') -%>

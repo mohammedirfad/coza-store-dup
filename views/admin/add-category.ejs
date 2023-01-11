@@ -1,0 +1,123 @@
+<%- include('partials/adminheader.ejs') %>
+
+
+
+
+
+    <section>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <form id="form" action="/admin/add-category" method="post"   onsubmit=' return valiadate()' enctype="multipart/form-data">
+                        <div class="card shadow p-3 mb-5 bg-white rounded " style="border-radius: 1rem;">
+                            <!-- <div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div> -->
+                            <div class="card-body p-5 text-center" style="    padding: 0.5rem;    margin-top: -48px;">
+
+                                <div class="mb-md-5 mt-md-4 pb-5">
+
+                                    <h2 class="fw-bold mb-2 text-uppercase">Add category</h2>
+                                    <p class="text-dark-50 mb-5">Please Add product category Here.</p>
+
+
+
+                                    <div class="form-group">
+                                        <label for="">CategoryName:<br></label>
+                                          
+                                        <input type="text" class="form-control" id="name" placeholder="CategoryName" name="name" style="margin-left: 10px;"   />
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label>Image upload :</label>
+
+                                        <div class="input-group col-xs-12">
+                                            <!-- <input class="form-control file-upload-info" placeholder="Upload Image" style="margin-left: 10px;    margin-left: 176px;
+                                            /* width: 323px; */
+                                            height: 43px;
+                                            width: 20%;
+                                            position: relative;
+                                            left: -160px;"
+                                                type="file" accept="image/jpeg,image/gif,image/png,image/x-eps" 
+                                                id="image" name="image" multiple /> -->
+                                            <!-- <span class="input-group-append"> -->
+                                            <!-- <button class="file-upload-browse btn btn-primary" type="button">Upload</button> -->
+                                            <!-- </span> -->
+
+                                            <input  class="form-control file-upload-info" type="file" id="image" name="image" accept="image/jpeg,image/gif,image/png,image/x-eps" placeholder="Upload Image" style="position: relative;
+                                            top: 50%;
+                                            left: 4%;
+                                            right: 50%;"onclick="image1()" multiple>
+                                        </div>
+                                        <label style="    margin-left: -91px;" id="image-error"></label>
+                                        <script>
+                                            function valiadate(){
+                                                
+                                         var image = document.getElementById("image").value
+                                         if(image == "" || image ==null){
+
+                                            document.getElementById("image-error").style.fontStyle="italic"
+                                            document.getElementById("image-error").style.color="red"
+                                            document.getElementById("image-error").innerHTML="image is not uploaded"
+                                         }
+                                      
+                                            }
+
+
+                                            function image1(){
+                                                if(image !=null)
+                                                {
+                                                    document.getElementById("image-error").style.color="green"
+                                            document.getElementById("image-error").innerHTML="image  uploaded"
+                                                }
+                                            }
+
+
+                                        </script>
+                                    </div> <br>
+
+                                    <button class="btn btn-primary btn-lg px-5" type="submit">Add Category</button>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <style type="text/css">
+        .error{
+            color: red;
+            margin-left: -78px;
+    font-style: italic;
+ 
+        }
+        .success{
+            color:green
+        }
+
+      
+    </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="crossorigin="anonymous"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+         
+        <script>
+            jQuery("#form").validate({
+                rules:{
+                    name:"required",
+                    // image:"required"
+                },
+                messages:{
+                    name:"Enter the category name",
+                    // image:"Image is mandatory "
+                }
+            })
+        </script>
+
+    <%- include('partials/adminfooter.ejs') %>

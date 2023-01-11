@@ -1,0 +1,41 @@
+
+  .text-color {
+    color: #145a32;
+  }
+  .card {
+    width: 561px;
+    height: 376px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #dee2e6;
+    border: none;
+    position: relative;
+    bottom: -80pxpx;
+    margin-top: -2303px;
+  }
+  .container {
+    height: 100vh;
+  }
+  .mobile-text {
+    color: #cd5c5c;
+    font-size: 15px;
+  }
+  .form-control {
+    margin-right: 12px;
+  }
+  .form-control:focus {
+    color: #495057;
+    background-color: #d4efdf;
+    border-color: #c0392b;
+    outline: 0;
+    box-shadow: none;
+  }
+  .cursor {
+    cursor: pointer;
+  }
+  .h1{
+    color: rgb(57, 52, 52);
+    font-family: ui-sans-serif;
+    font-weight: bold;
+  }
+  

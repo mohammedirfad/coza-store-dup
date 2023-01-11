@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sign Up 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/user/css copy 2/style.css">
+
+	<style type="text/css">
+		#email-error{
+			color: red;
+			font-weight: 500;
+		}
+		#password-error{
+			color: red;
+			font-weight: 500;
+		}
+		
+</style>
+	</head>
+	<body class="img" style="background-image: url(/user/images/slide-03.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"><a href="#" class="logo">
+						<img   src="/user/images/icons/logo-01.png" alt="IMG-LOGO">
+					</a></h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-5">
+					<div class="login-wrap">
+		      	<h3 class="text-center mb-4">Create Your Account</h3>
+                  <form action="/otp" method="post" class="signup-form" id="signupForm" >
+
+		      		<div class="form-group mb-3">
+		      			<label class="label" >Full Name</label>
+		      			<input type="text" class="form-control" name="fname"  id="fname"  placeholder="John Doe" onfocus="this.placeholder=''" onblur="this.placeholder='John Doe'" required>
+		      			<span class="icon fa fa-user-o"></span>
+						  <p id="usercheck" style="color: red;">
+							**Username is missing
+						</p>
+		      		</div>
+
+
+		      		<div class="form-group mb-3">
+		      			<label class="label" for="email">Email Address</label>
+		      			<input type="email" class="form-control" name="email" id="email" placeholder="johndoe@gmail.com"  onfocus="this.placeholder=''" onblur="this.placeholder='johndoe@gmail.com'" required>
+		      			<span class="icon fa fa-paper-plane-o"></span>
+						  <small id="emailvalid" style="color: red;" class="form-text 
+						  text-muted invalid-feedback">
+								  Your email must be a valid email
+							  </small>
+		      		</div>
+
+	            <div class="form-group mb-3">
+	            	<label class="label" for="password">Password</label>
+	              <input id="password" type="password" class="form-control" name="password"  placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" required >
+	              <span toggle="#passwords" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	              <span class="icon fa fa-lock"></span>
+				  <p id="passcheck" style="color: red;">
+					**Please Fill the password
+				</p>
+	            </div>
+
+
+	            <div class="form-group mb-3">
+	            	<label class="label" for="password">Re-Password</label>
+	              <input id="confirmPassword" type="password" name="repassword" class="form-control" placeholder="ConfirmPassword"  onfocus="this.placeholder=''" onblur="this.placeholder='ConfirmPassword'" required>
+	              <span toggle="#password-confirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	              <span class="icon fa fa-lock"></span>
+				  <p id="conpasscheck" style="color: red;">
+					**Password didn't match
+				</p>
+	            </div>
+                <div class="form-group mb-3">
+                    <label class="label" >Mobile number</label>
+                    <input type="number" class="form-control" name="mobile" id="phone" placeholder="1234567890" onfocus="this.placeholder = ''" onblur="this.placeholder = '1234567890'" required>
+                    <span class="icon fa fa-user-o"></span>
+                </div>
+	            <div class="form-group">
+	            	<button type="submit" id="submitbtn" value="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+	            </div>
+	          </form>
+	          <p>I'm already a member! <a data-toggle="tab" href="/login">Sign In</a></p>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<script src="/user/js copy 2/jquery.min.js"></script>
+    <script src="/user/js copy 2/popper.js"></script>
+    <script src="/user/js copy 2/bootstrap.min.js"></script>
+    <script src="/user/js copy 2/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="crossorigin="anonymous"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+	    $(document).ready(function () {
+  // Validate Username
+  $("#usercheck").hide();
+  let usernameError = true;
+  $("#fname").keyup(function () {
+    validateUsername();
+  });
+ 
+  function validateUsername() {
+    let usernameValue = $("#fname").val();
+    if (usernameValue.length == "") {
+      $("#usercheck").show();
+      usernameError = false;
+      return false;
+    } else if (usernameValue.length < 3 || usernameValue.length > 10) {
+      $("#usercheck").show();
+      $("#usercheck").html("**length of username must be between 3 and 10");
+      usernameError = false;
+      return false;
+    } else {
+      $("#usercheck").hide();
+    }
+  }
+ 
+//   Validate Email
+  const email = document.getElementById("email");
+  email.addEventListener("blur", () => {
+    let regex = /^([\-\.0-9a-zA-Z]+)@([\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    let s = email.value;
+    if (regex.test(s)) {
+      email.classList.remove("is-invalid");
+      emailError = true;
+    } else {
+      email.classList.add("is-invalid");
+      emailError = false;
+    }
+  });
+ 
+  // Validate Password
+  $("#passcheck").hide();
+  let passwordError = true;
+  $("#password").keyup(function () {
+    validatePassword();
+  });
+  async function validatePassword () {
+    let passwordValue = $("#password").val();
+    if (passwordValue.length == "") {
+      $("#passcheck").show();
+      passwordError = false;
+      return false;
+    }
+    if (passwordValue.length < 3 || passwordValue.length > 10) {
+      $("#passcheck").show();
+      $("#passcheck").html(
+        "**length of your password must be between 3 and 10"
+      );
+      $("#passcheck").css("color", "red");
+      passwordError = false;
+      return false;
+    } 
+    let res= await containsSpecialChars(passwordValue)
+   console.log(res);
+  if(res===false){
+    $("#passcheck").show();
+      $("#passcheck").html(
+        "Password must contain special characters"
+      );
+      $("#passcheck").css("color", "red");
+      passwordError = false;
+      return false;
+  }
+  else {
+      $("#passcheck").hide();
+    }
+  }
+  function containsSpecialChars(str) {
+    console.log('ivde vannu');
+  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  return specialChars.test(str);
+}
+  // Validate Confirm Password
+  $("#conpasscheck").hide();
+  let confirmPasswordError = true;
+  $("#confirmPassword").keyup(function () {
+    validateConfirmPassword();
+  });
+  function validateConfirmPassword() {
+    let confirmPasswordValue = $("#confirmPassword").val();
+    let passwordValue = $("#password").val();
+    if (passwordValue != confirmPasswordValue) {
+      $("#conpasscheck").show();
+      $("#conpasscheck").html("**Password didn't Match");
+      $("#conpasscheck").css("color", "red");
+      confirmPasswordError = false;
+      return false;
+    } else {
+      $("#conpasscheck").hide();
+    }
+  }
+ 
+  // Submit button
+  $("#submitbtn").click(function () {
+    validateUsername();
+    validatePassword();
+    validateConfirmPassword();
+    validateEmail();
+    if (
+      usernameError == true &&
+      passwordError == true &&
+      confirmPasswordError == true &&
+      emailError == true
+    ) {
+        $('#signupForm').submit(function (evt) {
+    evt.preventDefault();
+    window.history.back();
+});
+      return true;
+    } else {  
+      return false;
+    }
+  });
+});
+	</script>
+
+	</body>
+</html>

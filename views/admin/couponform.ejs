@@ -1,0 +1,93 @@
+		
+<%- include('partials/adminheader.ejs') %>
+
+
+
+<div class= " container main-panel" style="border: 1px solid #1a181738;
+border-radius: 7px;
+margin-top: 68px;">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-5">Add Coupen</h4>
+                      
+                        <form class="" action="/admin/addedcoupon" method="post"  >
+                            <div class="form-group">
+                                <label for="exampleInputName1" style="color: black;">Coupen Code :</label>
+                                <input type="text" class="form-control" value="" name="code" id="exampleInputName1"
+                                    placeholder="">
+                            </div>
+                       
+                            
+                              <div class="col-md-6 mb-3">
+                                <label class="mt-3" style="color: black;">Discount Type :</label>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="percentage"
+                                                id="optionsRadios1" value="true">
+                                                percentage(%)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="percentage"
+                                                id="optionsRadios2" value="false" checked>
+                                                amount($)
+                                        </label>
+                                    </div>
+      
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mt-3" for="exampleInputPassword4" style="color: black;">Amount (if is percent, then number must be ≤ 100, else it’s amount of discount)</label>
+                                <input type="number"  class="form-control" name="amount" id="exampleInputPassword4" value=""
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mt-3" for="exampleInputPassword4" style="color: black;">Minimum Cart :</label>
+                                <input type="number" class="form-control" name="minCartAmount" value="" id="exampleInputPassword4"
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mt-3" for="exampleInputPassword4" style="color: black;">Expire After(date) :</label>
+                                <input type="date" class="form-control" name="expireDate" value="" id="exampleInputPassword4"
+                                    placeholder="">
+                            </div>
+                           
+                            <div class="form-group">
+                                <label class="mt-3" for="exampleInputPassword4" style="color: black;">Usage Limit :</label>
+                                <input type="number" class="form-control" name="available" value="" id="exampleInputPassword4"
+                                    placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mt-3" for="exampleInputPassword4" style="color: black;">Maxmum Cart Amount :</label>
+                                <input type="number" class="form-control" name="maxRedeemAmount"
+                                    id="exampleInputPassword4" placeholder="Discription">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-success mr-2 mt-3 ">Uplode coupen</button>
+                            <button class="btn btn-danger" style="margin-top: 1pc;">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<BR>
+    <BR>
+		
+<%- include('partials/adminfooter.ejs') %>

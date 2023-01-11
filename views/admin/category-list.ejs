@@ -1,0 +1,52 @@
+<%- include('partials/adminheader.ejs') %>
+
+<div class="col-12 mt-5">
+    <div class="bg-light rounded h-100 p-4">
+        <h3 class="mt-4">Category-List</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th scope="col">image</th>
+                        <th scope="col">Category Name</th>
+                  
+                        
+                      
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<get_categorylist.length;i++) { %> 
+                    <tr>
+                        <th scope="row"><%- i+1 %></th>
+                     
+                  
+                        <td>
+                            <img class="rounded-circle me-lg-2" src="\admin\img\<%-get_categorylist[i].image[0].filename %> "  style="width: 40px; height: 40px;"   alt="some thing wrong">
+                        </td>
+                     
+                        <td><%-get_categorylist[i].name %></td>
+
+                        <td><button class="btn btn-success"><a style="color: white;" href="/admin/edit-category/<%- get_categorylist[i]._id %>">edit</a></button></td>
+
+                        <td><button class="btn btn-danger"><a style="color: white;" href="/admin/deletecategory/<%- get_categorylist[i]._id %>" >delete</a></button></td>
+                        
+                           
+                    </tr>
+                    <% } %>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<%- include('partials/adminfooter.ejs') %>

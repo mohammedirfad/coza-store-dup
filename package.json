@@ -1,0 +1,30 @@
+{
+  "name": "main-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.8.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemailer-sendinblue-transport": "^2.0.1",
+    "nodemon": "^2.0.20",
+    "randomstring": "^1.2.3",
+    "session": "^0.1.0",
+    "twilio": "^3.83.4"
+  }
+}

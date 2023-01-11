@@ -1,0 +1,169 @@
+<%- include('partials/adminheader.ejs') %>
+<div class="container mt-5" style= "
+width: 1106px;"
+ >
+    <div class="col-12" >
+
+        <h3 class="mt-4">Orders List</h3>
+        <div class="bg-light rounded h-100 p-4">
+            <!-- <h6 class="mb-4">Your Orders</h6> -->
+            <div class="table-responsive">
+                <table class="table">
+                    <thead style="color: black;">
+                        <tr>
+                            <th>#ORDER_ID</th>
+                            
+                            <th scope="col">USER_ID</th>
+
+                            <th scope="col">DATE</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col">PAYMENT-METHOD</th>
+                            <th scope="col">TOTAL</th>
+                            <th scope="col">PRODUCT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i<Order.length;i++) { %> 
+                        <tr>
+                            <td ><%= Order[i]._id %> </td>
+                            <td ><%= Order[i].user.fname %> </td>
+                         
+                      
+                            <td>
+                                <%= Order[i].date %> 
+     
+                            </td>
+                         
+                            <td>
+      <% if (Order[i].orderStatus!="CANCELLED" && Order[i].orderStatus != "DELIVERED" ) { %>
+                    <select style="    width: 127px;"
+                  class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                  name="track"
+                  id="track<%= i %>"
+                >
+                  <option value="<%= Order[i].orderStatus %>" selected>
+                    <%= Order[i].orderStatus %>
+                  </option>
+               
+                  <option value="CANCELLED"> CANCELLED</option>
+                  <option value="CONFIRMED">CONFIRMED</option>
+                  <option value="SHIPPED">SHIPPED</option>
+                  <option value="DELIVERED">DELIVERED</option>
+                  <option value="OUT FOR DELIVERY">OUT FOR DELIVERY</option>
+                </select>
+                <!-- <td class="px-4 py-3 text-sm"> -->
+                <button style="width: 70px;
+                height: 21px;
+                margin-top: -10px;
+                position: relative;
+                top: 12px;
+                border-radius: 25px;
+                background-color: #0a85f6;
+                border: none;"
+                  class="px-4 py-3 text-sm"
+                  type="button"
+                  id="changetrack"
+                  class="btn btn-sm"
+                  onclick="orderStatus('<%= Order[i]._id %>','<%= i %>')"
+                >
+                  <span style="text-align: center;
+                  justify-content: center;
+                  position: relative;
+                  justify-content: center;
+                  left: -24px;
+                  top: -10px;
+                  color: wheat;"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                  >
+                    Update
+                  </span>
+                </button>
+
+                <%} else if(Order[i].orderStatus=='DELIVERED') { %>
+                    <h6 style="color:green;"> <%= Order[i].orderStatus %></h6>
+                  
+                <% } else { %>
+                   <s> <h6 style="color: red"> <%= Order[i].orderStatus %></h6></s>
+
+            <%}%>
+             </td>
+                            <td>
+                                
+                                <%= Order[i].paymentStatus%> 
+                            </td>
+    
+                            <td> 
+                               $<%= Order[i].total %> 
+                            </td>
+    
+                            <td> 
+                                
+                                 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Launch demo modal
+                                  </button> -->
+                                 <a href="/admin/orderDetails/<%= Order[i]._id %>"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  Details
+                                 </button></a>
+                            </td>
+                  
+                               
+                        </tr>
+                        <% } %>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!-- Button trigger modal -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    async function orderStatus(e,i){
+        const orderid = e;
+        const value = $(`#track${i}`).find(":selected").val();
+        console.log(orderid , value)
+
+        let response = await axios({
+            method : 'post',
+            url    : '/admin/orderstatus',
+            data   :{
+                orderid,value
+            }
+        })
+
+        console.log("axios responding...")
+        if(response.data.status){
+            const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "success",
+            title: "order statuse has been changed",
+          }).then(() => {
+            // location.href = "/admin/orders";
+            window.location.reload();
+          });
+        }
+
+
+    }
+</script>
+
+  
+  
+
+
+<%- include('partials/adminfooter.ejs') %>
