@@ -367,22 +367,6 @@ const cartview = async (req, res) => {
         const cartItems = await Cartdb.findOne({ user: mongoose.Types.ObjectId(owner_id) })
             .populate('items.product')
 
-    
-
-
-
-    // if(cartItems.items.length != 0 || cartItems.items != null){
-    //     const cart_count = cartItems.items.length
-    //     req.session.Cartlength = cart_count
-    // }
-    //   else{
-    //     const cart_count =  cartItems.items.length
-    //     req.session.Cartlength = 0;
-    //   }
-
-
-        // console.log(cart_count)
-
         res.render('user/cartview', { login: req.session.loggedin, cartItems, user: req.session.user_detail})
        
     }
@@ -390,8 +374,6 @@ const cartview = async (req, res) => {
     catch (rr) {
         console.log(rr)
     }
-
-
 }
 const error = (req, res) => {
     res.render('user/404error', { login: req.session.loggedin })
