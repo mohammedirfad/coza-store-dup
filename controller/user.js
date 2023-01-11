@@ -317,12 +317,7 @@ const productView = async (req, res) => {
         product = await productdb.find()
     }
 
-    // let usercat ;
-
-    // if(sort == 'Women'){
-    //     usercat = await User_cat.find({name:{$eq:'Womens'}})
-    // }
-
+   
   
     const user = req.session.user_detail 
 
@@ -349,7 +344,7 @@ const productView = async (req, res) => {
 
     }
 
-    // res.render('user/shop', { login: req.session.loggedin, usercat, product })
+
 }
 
 //single-productView
