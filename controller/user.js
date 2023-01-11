@@ -127,7 +127,7 @@ const profile = async (req, res) => {
 const addressManage = async (req, res) => {
 
     try {
-        res.render('user/addAddress', { login: req.session.loggedin,user: req.session.user_detail })
+        res.render('user/addaddress', { login: req.session.loggedin,user: req.session.user_detail })
 
     }
     catch (err) {
@@ -371,17 +371,7 @@ const cartview = async (req, res) => {
 
 
 
-    // if(cartItems.items.length != 0 || cartItems.items != null){
-    //     const cart_count = cartItems.items.length
-    //     req.session.Cartlength = cart_count
-    // }
-    //   else{
-    //     const cart_count =  cartItems.items.length
-    //     req.session.Cartlength = 0;
-    //   }
-
-
-        // console.log(cart_count)
+   /
 
         res.render('user/cartview', { login: req.session.loggedin, cartItems, user: req.session.user_detail})
        
@@ -1428,7 +1418,7 @@ const orderdetails = async (req, res) => {
     console.log(req.params.id)
     const orderDetail = await Orderdb.findOne({ _id: req.params.id }).populate('items.product')
     console.log(orderDetail)    
-    res.render('user/orderDetails', { login: req.session.loggedin, orderDetail })
+    res.render('user/orderdetails', { login: req.session.loggedin, orderDetail })
 }
 
 const cancelorder = async (req, res) => {

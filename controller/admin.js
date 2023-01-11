@@ -387,7 +387,7 @@ const OrderDetails = async (req, res) => {
 
     const orderDetail = await orderdb.findOne({ _id: req.params.id }).populate('items.product')
 
-    res.render('admin/orderDetails', { orderDetail })
+    res.render('admin/orderdetails', { orderDetail })
 
 }
 
