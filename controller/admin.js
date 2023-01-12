@@ -644,15 +644,15 @@ const monthreport = async (req,res)=>{
           ]);
           console.log(Monthreport,"oijuhygtrffffffffffgyhujmikmnbhgtvfrcedxws4edrcftvbyu")
 
-         const MReport = Monthreport.map((el)=>{
-            let newEl=[...el];
-            newEl._id.month = months[newEl._id.month - 1];
-            return newEl;
+        //  const MReport = Monthreport.map((el)=>{
+        //     let newEl=[...el];
+        //     newEl._id.month = months[newEl._id.month - 1];
+        //     return newEl;
 
-         });
+        //  });
 
         //  console.log(MReport,"````````````````````````````````````````````````````````````````'''")
-        res.render('admin/Monthreport',{Monthreport})
+        res.render("admin/monthreport",{Monthreport})
 
 
       }
@@ -684,7 +684,7 @@ const yearreport = async (req,res)=>{
               { $sort: { date: -1 } },
             
           ]);
-        res.render('admin/Yearreport',{Yearreport})
+        res.render('admin/yearreport',{Yearreport})
     }
     catch (error) {
         res.render('admin/404')
