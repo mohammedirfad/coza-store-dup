@@ -1468,7 +1468,7 @@ const verifycoupon = async (req,res)=>{
 
 
         if(available !=0){
-            if(nowdate>expireDate){
+            if(nowdate<expireDate){
                 console.log("hiiii.....")
                 if(percentage == false){
                     if (Total < minAmount) {
