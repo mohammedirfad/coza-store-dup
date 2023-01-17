@@ -29,28 +29,32 @@
             padding: 38px;">Order info</h4>
             <ul style="    margin-left: 36px;">
               <li>
-                <p>order number</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= orderDetail._id %> </span>
+                <p>order number</p><span style="margin-left: 167px;
+    top: -42px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= orderDetail._id %> </span>
               </li>
               <li>
-                <p>Date</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= orderDetail.date %> </span>
+                <p>Date</p><span style="margin-left: 167px;
+    top: -42px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= orderDetail.date %> </span>
               </li>
               <li>
-                <p> Total</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= orderDetail.total %> </span>
+                <p> Total</p><span style="margin-left: 167px;
+    top: -42px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= orderDetail.total %> </span>
               </li>
               <li>
-                <p>Payment Method</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= orderDetail.paymentMethod %> </span>
+                <p>Payment Method</p><span style="margin-left: 167px;
+    top: -42px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= orderDetail.paymentMethod %> </span>
               </li>
             </ul>
           </div>
@@ -65,28 +69,32 @@
             padding: 38px;">Billing Address</h4>
             <ul style="    margin-left: 36px;">
               <li>
-                <p>House</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= deliver_Address.street %>  </span>
+                <p>House</p><span style="margin-left: 167px;
+    top: -41px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= deliver_Address.street %>  </span>
               </li>
               <li>
-                <p>City</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">:  <%= deliver_Address.city %>  </span>
+                <p>City</p><span style="margin-left: 167px;
+    top: -41px;
+    position: relative;
+    color: black;
+    font-weight: bold;">:  <%= deliver_Address.city %>  </span>
               </li>
               <li>
-                <p>State</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">:  <%= deliver_Address.state %>  </span>
+                <p>State</p><span style="margin-left: 167px;
+    top: -41px;
+    position: relative;
+    color: black;
+    font-weight: bold;">:  <%= deliver_Address.state %>  </span>
               </li>
               <li>
-                <p>Pincode</p><span style="    margin-left: 167px;
-                top: -21px;
-                position: relative;
-                color: black;">: <%= deliver_Address.pincode %>  </span>
+                <p>Pincode</p><span style="margin-left: 167px;
+    top: -41px;
+    position: relative;
+    color: black;
+    font-weight: bold;">: <%= deliver_Address.pincode %>  </span>
               </li>
             </ul>
           </div>
@@ -138,13 +146,14 @@
                 <tr>
                   <th colspan="2"><span><%= el.product.name %> </span></th>
                   <th>x<%= el.quantity %></th>
-                  <th><span>₹ <%= el.total %></span></th>
+                  <% }) %>
+                  <th><span>$<%= orderDetail.total %>.00</span></th>
                 </tr>
   
-                <% }) %>
+               
                 <tr id="success_subtotal" style="color: black;">
                   <th colspan="3">Subtotal</th>
-                  <th>₹<%= orderDetail.total %>.00</th>
+                  <th>$<%= orderDetail.total %>.00</th>
                 </tr>
                 <tr style="color: black;">
                   <th colspan="3">Shipping</th>

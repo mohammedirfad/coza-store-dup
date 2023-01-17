@@ -40,7 +40,7 @@ const{
     verifycoupon,
     resetPassowrd,
 newpassword,
-
+resendotp,
 
     ordersucess
 //     ordernow
@@ -69,7 +69,10 @@ router
       .route('/forgetpassword')
       .get(forgetpassword)
       .post(forgetpass_validate)
-
+      
+router
+      .route('/resendotp')
+      .get(resendotp)
 
 router
       .route('/')

@@ -14,7 +14,7 @@ const { findOne } = require('../models/usersignin');
 const router = require('../routes/userrouter');
 const crypto = require('crypto')
 const dotenv = require('dotenv')
-dotenv.config({ path: './.env' })
+dotenv.config({path:"./.env"})
 
 
 const randomstring = require('randomstring')
@@ -36,6 +36,7 @@ const mailer = nodemailer.createTransport({
 
 const userhomepage = async (req, res) => {
 
+   try{
     let usercat = await User_cat.find();
     
 
@@ -76,6 +77,10 @@ const userhomepage = async (req, res) => {
     }
 
 
+   }
+   catch(error){
+     res.render('user/404error')
+   }
     // console.log(product)
 
 }
@@ -102,7 +107,7 @@ const getotp = (req, res) => {
 
 const profile = async (req, res) => {
 
-
+try{
     const id = req.session.user_detail._id
     console.log(id)
 
@@ -120,6 +125,11 @@ const profile = async (req, res) => {
     }
     console.log(user_address)
     res.render('user/profile', { login: req.session.loggedin, find_user, user: req.session.user_detail, address, user_address })
+}
+catch(error){
+    res.render('user/404error')
+}
+
 }
 
 //add-address(get)
@@ -495,6 +505,28 @@ const otpverification = async (req, res) => {
     })
 
 }
+
+//resend otp
+const resendotp = async (req,res)=>{
+    try{
+        const user = req.session.user_detail
+
+        console.log("hhhhhhhhhhhhhhhhhhhhhh")
+        const {mobile} =req.session.user_detail
+        const Phone = mobile
+        sendotp(Phone)
+       
+        // res.redirect('/otp')
+
+        
+    
+    }
+    catch(error){
+        res.render('user/404error')
+    }
+}
+
+
 
 const addtocart = async (req, res) => {
     
@@ -1614,6 +1646,7 @@ module.exports = {
 
     resetPassowrd,
     newpassword,
+    resendotp,
 
     ordersucess
 
