@@ -15,7 +15,7 @@ const router = require('../routes/userrouter');
 const crypto = require('crypto')
 const dotenv = require('dotenv')
 dotenv.config({path:"./.env"})
-
+1
 
 const randomstring = require('randomstring')
 
@@ -23,7 +23,10 @@ const nodemailer = require('nodemailer')
 
 
 const mailer = nodemailer.createTransport({
+    // service: 'gmail',
     host:process.env.server,
+ 
+
     port:process.env.mailerport,
     auth:{
         user:process.env.Login,
@@ -1358,6 +1361,8 @@ const forgetpass_validate = async (req, res) => {
 
                 console.log(user, "...................................................................")
                 if (!user) {
+
+                    console.log("nooo user found")
                     return res.redirect('/forgetpassword')
                 }
                 user.resetToken = token;
@@ -1367,7 +1372,7 @@ const forgetpass_validate = async (req, res) => {
             })
             .then((result) => {
                 console.log("```````````````123````````````", result);
-                res.redirect("/");
+                
                 var emails ={
                     to:[result.email],
                     from:"muhammedirfad43@gmail.com",
