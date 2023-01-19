@@ -83,6 +83,7 @@ const userhomepage = async (req, res) => {
    }
    catch(error){
      res.render('user/404error')
+
    }
     // console.log(product)
 
@@ -90,8 +91,14 @@ const userhomepage = async (req, res) => {
 
 const userLogin = (req, res) => {
 
+   try{
     const message = req.session.msg;
     res.render('user/userlogin',{message})
+   }
+   catch(error){
+    // res.render('user/404error')
+    res.send("error")
+   }
 }
 
 const userSignup = (req, res) => {
@@ -273,6 +280,7 @@ const search = async (req,res)=>{
 // porduct- view
 const productView = async (req, res) => {
 
+  try{
     console.log(req.query,"<<<<<><><><><><><><><><><><><><><><><><>>><><><><><")
     const sort = req.query.sort;
     let usercats = await User_cat.find();
@@ -357,7 +365,10 @@ const productView = async (req, res) => {
 
     }
 
-
+  }
+catch(err){
+res.redirect('/404error')
+}
 }
 
 //single-productView
@@ -389,11 +400,12 @@ const cartview = async (req, res) => {
     }
 }
 const error = (req, res) => {
-    res.render('user/404error', { login: req.session.loggedin })
+    res.render('user/404error')
 }
 
 
 const homepage = async (req, res) => {
+   try{
     console.log(req.body)
     const { email, password } = req.body
 
@@ -434,9 +446,13 @@ const homepage = async (req, res) => {
     }
     else {
         console.log("wrong user")
-        req.session.msg = "You have Entered Wrong Email"
+        req.session.msg = "Sorry! email does not found"
         res.redirect('/login')
     }
+   }
+   catch(error){
+    res.render('user/404')
+   }
 }
 
 
@@ -1342,7 +1358,8 @@ const refund = async (req,res)=>{
 
 
 const forgetpassword = async (req, res) => {
-  res.render('user/forgetpass',{login: req.session.loggedin})
+ let forMge=req.session.forUser
+  res.render('user/forgetpass',{login: req.session.loggedin,forMge})
 
 
 }
@@ -1362,6 +1379,7 @@ const forgetpass_validate = async (req, res) => {
                 console.log(user, "...................................................................")
                 if (!user) {
 
+                    req.session.forUser="Email not Exist !"
                     console.log("nooo user found")
                     return res.redirect('/forgetpassword')
                 }
