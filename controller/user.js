@@ -112,7 +112,9 @@ const logout = (req, res) => {
 
 
 const getotp = (req, res) => {
-    res.render('user/otp')
+
+    let errmsg= req.session.otperr;
+    res.render('user/otp',{errmsg})
 }
 
 const profile = async (req, res) => {
@@ -456,6 +458,7 @@ const homepage = async (req, res) => {
 }
 
 
+// post sign in;
 const otp = async (req, res) => {
     console.log(req.body)
 
@@ -518,6 +521,8 @@ const otpverification = async (req, res) => {
         }
         else {
             // req.send("entered password is error");
+
+            req.session.otperr = "incorrect otp"
             res.redirect('/otp')
 
         }
