@@ -321,7 +321,7 @@ const productView = async (req, res) => {
     else if(sort == 'allProduct'){
         product = await productdb.find()
     }
-    else if(sort == 'Women'){
+    else if(sort == 'Womens'){
         product = await productdb.find({category:{$eq:'womens'}})
    
     }
@@ -528,14 +528,14 @@ const otpverification = async (req, res) => {
 //resend otp
 const resendotp = async (req,res)=>{
     try{
-        const user = req.session.user_detail
+        const user =req.session.usersign
 
         console.log("hhhhhhhhhhhhhhhhhhhhhh")
-        const {mobile} =req.session.user_detail
+        const {mobile} =req.session.usersign
         const Phone = mobile
         sendotp(Phone)
        
-        // res.redirect('/otp')
+    res.redirect('/otp')
 
         
     
